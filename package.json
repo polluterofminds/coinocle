@@ -1,0 +1,24 @@
+{
+  "name": "coinocle-server",
+  "version": "0.0.1",
+  "description": "Optimized for simplicity over scalability.",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.15.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hevyw8/coinocle.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hevyw8/coinocle/issues"
+  },
+  "homepage": "https://github.com/hevyw8/coinocle#readme"
+}
