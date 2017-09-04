@@ -5,6 +5,9 @@
 
 
 
+## Back End Dependencies
+- express
+- mongoose
 
 
 ## Proposed Stack
