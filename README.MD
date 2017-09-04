@@ -1,3 +1,11 @@
+## Local Setup (in progress)
+node ~8.4.0
+mongoose install
+mlab dev-dbase user and keys (.gitignore)
+
+
+
+
 
 ## Proposed Stack
 
