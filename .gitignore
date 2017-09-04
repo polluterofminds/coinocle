@@ -1,2 +1,2 @@
-/server/config
-/client/config
+node_modules
+keys.js
