@@ -1,7 +1,7 @@
-## Local Setup (in progress)
-node ~8.4.0
-mongoose install
-mlab dev-dbase user and keys (.gitignore)
+## Local Setup (in progress, will eventually point front end to a remote dev backend)
+
+- node ~8.4.0
+- mlab dev-dbase user and keys (.gitignore)
 
 
 
