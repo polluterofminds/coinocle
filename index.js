@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
-require('./models/wallet');
+const Wallet = require('./models/wallet');
 
 const app = express();
 
@@ -12,8 +12,20 @@ mongoose.connect(keys.mongoURI, { useMongoClient: true });
 
 seedDB();
 
-app.get('/dashboard', function(req, res) {
-  res.send('hi world');
+app.get('/wallets', function(req, res) {
+  //  get all wallets
+  Wallet.find({}, function(err, allWallets) {
+    if (err) {
+      console.log(err);
+    } else {
+      // uncomment the following code to render /index
+      // res.render('wallets/index', {
+      //   wallets: allWallets
+      // });
+      res.send('Look in the console to see the wallets');
+      console.log(allWallets);
+    }
+  });
 });
 
 const PORT = process.env.PORT || 5000;
