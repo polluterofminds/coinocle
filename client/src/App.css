@@ -1,0 +1,58 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 80px;
+}
+
+.App-header, .App-header H2 {
+  background-color: #fff;
+  height: 150px;
+  padding: 20px;
+  color: #000;
+  font-weight: 100;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.navbar-brand img {
+  height: 80px;
+}
+
+.navbar {
+  height: 120px;
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.navbar-nav {
+  margin-top: 15px;
+}
+
+.welcome-text {
+  max-width: 80%;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.googleButton {
+  height: 50px;
+  margin-top: 40px;
+}
+
+.signUpButton {
+  margin-top: 30px;
+}
+
+.signUpButton a {
+  text-decoration: underline;
+  color: #000;
+}
+
+.navbar-toggle.collapsed, .navbar-toggle.collapsed:hover {
+  background-color: #fff;
+  border-color: #fff;
+}
