@@ -1,34 +1,26 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const keys = require('./config/keys');
-const Wallet = require('./models/wallet');
+const express = require("express");
+const mongoose = require("mongoose");
+const cookieSession = require("cookie-session");
+const passport = require("passport");
+const keys = require("./config/keys");
+require("./models/User");
+require("./services/passport");
+
+mongoose.connect(keys.mongoURI);
 
 const app = express();
 
-var seedDB = require('./seeds');
+app.use(
+  cookieSession({
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    keys: [keys.cookieKey]
+  })
+);
 
-mongoose.Promise = global.Promise;
-mongoose.connect(keys.mongoURI, { useMongoClient: true });
+app.use(passport.initialize());
+app.use(passport.session());
 
-seedDB();
-
-app.get('/wallets', function(req, res) {
-  //  get all wallets
-  Wallet.find({}, function(err, allWallets) {
-    if (err) {
-      console.log(err);
-    } else {
-      // uncomment the following code to render /index
-      // res.render('wallets/index', {
-      //   wallets: allWallets
-      // });
-      res.send('Look in the console to see the wallets');
-      console.log(allWallets);
-    }
-  });
-});
+require("./routes/authRoutes")(app);
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, function() {
-  console.log('coinocle server is running');
-});
+app.listen(PORT);
