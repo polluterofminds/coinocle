@@ -7,13 +7,11 @@ class Header extends Component {
   renderContent() {
     switch (this.props.auth) {
       case null:
-        return "waiting";
+        return;
       case false:
-        return
-        "logged out";
+        return   <ul className="nav navbar-nav navbar-right"><li><a href="#">Sign In</a></li><li><a href="#">Contact</a></li></ul>;
       default:
-        return
-        "logged in";
+        return   <ul className="nav navbar-nav navbar-right"><li><a href="#">Sign Out</a></li><li><a href="#">Help</a></li></ul>;
     }
   }
 
@@ -54,14 +52,7 @@ class Header extends Component {
                   <a href="#">About</a>
                 </li>
               </ul>
-              <ul className="nav navbar-nav navbar-right">
-                <li>
-                  <a href="#">Sign In</a>
-                </li>
-                <li>
-                  <a href="#">Help</a>
-                </li>
-              </ul>
+              {this.renderContent()}
             </div>
           </div>
         </nav>
