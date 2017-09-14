@@ -61,6 +61,70 @@
   border-color: #fff;
 }
 
+/*Dashboard design*/
+
+.total-wallet-value {
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+.empty-state, .total-wallet-value {
+  color: #ACACAB;
+}
+
+/*Table design*/
+
+table, th, tr, td {
+  border: 1px solid #000;
+}
+
+th, tr, td {
+  padding: 10px;
+}
+
+td {
+  height:30px;
+}
+
+table {
+  width: 85%;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.wallet-table {
+  margin-top: 60px;
+  margin-bottom: 35px;
+}
+
+.addAWallet {
+  text-decoration: underline;
+}
+
+/*Add Transaction Button Design*/
+
+
+.plus-sign {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 10px;
+  right: 40px;
+  background-color: #D5982E;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+}
+
+a.plus-sign, a.plus-sign:hover {
+  font-size: 45px;
+  padding-bottom: 20px;
+  text-decoration:  none;
+  color: #fff;
+}
+
+
 /*.navbar-default{
   border-color: #fff;
   text-align: center;
