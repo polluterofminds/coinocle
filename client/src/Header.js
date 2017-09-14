@@ -11,7 +11,7 @@ class Header extends Component {
       case false:
         return   <ul className="nav navbar-nav navbar-right"><li><a href="#">Sign In</a></li><li><a href="#">Contact</a></li></ul>;
       default:
-        return   <ul className="nav navbar-nav navbar-right"><li><a href="#">Sign Out</a></li><li><a href="#">Help</a></li></ul>;
+        return   <ul className="nav navbar-nav navbar-right"><li><a href="/api/logout">Sign Out</a></li><li><a href="#">Help</a></li></ul>;
     }
   }
 
