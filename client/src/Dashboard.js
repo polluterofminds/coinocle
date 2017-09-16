@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import logo from "./logoWhite.png";
 import googleButton from "./googlesignin.png";
 import "./App.css";
+import Landing from "./Landing";
 
 class Dashboard extends Component {
   render() {

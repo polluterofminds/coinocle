@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import logo from "./logoWhite.png";
 import "./App.css";
 
@@ -9,9 +10,30 @@ class Header extends Component {
       case null:
         return;
       case false:
-        return   <ul className="nav navbar-nav navbar-right"><li><a href="#">Sign In</a></li><li><a href="#">Contact</a></li></ul>;
+        return (
+          <ul className="nav navbar-nav navbar-right">
+            <li>
+              <a href="/auth/google">Sign In</a>
+            </li>
+            <li>
+              <a href="#">Contact</a>
+            </li>
+          </ul>
+        );
       default:
-        return   <ul className="nav navbar-nav navbar-right"><li><a href="/api/logout">Sign Out</a></li><li><a href="#">Help</a></li></ul>;
+        return (
+          <ul className="nav navbar-nav navbar-right">
+            <li>
+              <a href="#">Billing</a>
+            </li>
+            <li>
+              <a href="#">Help</a>
+            </li>
+            <li>
+              <a href="/api/logout">Sign Out</a>
+            </li>
+          </ul>
+        );
     }
   }
 
@@ -31,9 +53,12 @@ class Header extends Component {
                 <span className="sr-only">Toggle navigation</span>
                 <span className="glyphicon glyphicon-option-vertical" />
               </button>
-              <a className="navbar-brand" href="/">
+              <Link
+                to={this.props.auth ? "/dashboard" : "/"}
+                className="navbar-brand"
+              >
                 <img src={logo} alt="Coinocle" />
-              </a>
+              </Link>
             </div>
             <div
               className="collapse navbar-collapse"
