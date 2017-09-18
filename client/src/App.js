@@ -9,10 +9,10 @@ import "./App.css";
 import Header from "./Header";
 import Landing from "./Landing";
 import Dashboard from "./Dashboard";
+import Billing from "./Billing";
 const NewTransaction = () => <h2>NewTransaction</h2>;
 const AddWallet = () => <h2>AddWallet</h2>;
 const Settings = () => <h2>Settings</h2>;
-const Billing = () => <h2>Billing</h2>;
 const Wallets = () => <h2>Wallets</h2>;
 const Transactions = () => <h2>Transactions</h2>;
 
@@ -29,6 +29,7 @@ class App extends Component {
             <Header />
             <Route exact path="/" component={Landing} />
             <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/billing" component={Billing} />
             <Route exact path="/transactions/new" component={NewTransaction} />
           </div>
         </BrowserRouter>

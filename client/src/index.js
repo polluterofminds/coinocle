@@ -8,7 +8,6 @@ import registerServiceWorker from "./registerServiceWorker";
 import App from "./App";
 import reducers from "./reducers";
 
-
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 ReactDOM.render(
@@ -18,3 +17,6 @@ ReactDOM.render(
   document.getElementById("root")
 );
 registerServiceWorker();
+
+console.log("STRIPE KEY IS", process.env.REACT_APP_STRIPE_KEY);
+console.log("Environment is ", process.env.NODE_ENV);

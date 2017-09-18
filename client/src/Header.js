@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import Payments from "./payments"
 import logo from "./logoWhite.png";
 import "./App.css";
 
@@ -24,7 +25,7 @@ class Header extends Component {
         return (
           <ul className="nav navbar-nav navbar-right">
             <li>
-              <a href="#">Billing</a>
+              
             </li>
             <li>
               <a href="#">Help</a>
