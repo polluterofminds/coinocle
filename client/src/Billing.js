@@ -3,14 +3,14 @@ import logo from "./logoWhite.png";
 import googleButton from "./googlesignin.png";
 import "./App.css";
 import Landing from "./Landing";
-import Payments from "./payments"
+import Payments from "./Payments"
 
 class Billing extends Component {
 
   render() {
+    const planName = "Yearly";
+    const amountDue = "$99.99";
 
-    const planName = "Monthly";
-    const amountDue = "$9.99";
 
     return (
       <div className="billing-main">
@@ -25,7 +25,9 @@ class Billing extends Component {
         <div className="row billing-additional">
           <div className="col-md-6 billing-cards">
             <h2 className="text-center">Billing History</h2>
-            <p></p>
+            <p>
+              Credits: {this.props.auth}
+            </p>
           </div>
           <div className="col-md-6 billing-cards">
             <h2 className="text-center">Switch to a Yearly Plan</h2>
