@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import logo from "./logoWhite.png";
 import googleButton from "./googlesignin.png";
 import "./App.css";
@@ -10,7 +12,6 @@ class Billing extends Component {
   render() {
     const planName = "Yearly";
     const amountDue = "$99.99";
-
 
     return (
       <div className="billing-main">
@@ -26,7 +27,7 @@ class Billing extends Component {
           <div className="col-md-6 billing-cards">
             <h2 className="text-center">Billing History</h2>
             <p>
-              Credits: {this.props.auth}
+              
             </p>
           </div>
           <div className="col-md-6 billing-cards">

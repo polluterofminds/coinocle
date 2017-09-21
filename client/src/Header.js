@@ -25,10 +25,9 @@ class Header extends Component {
         return (
           <ul className="nav navbar-nav navbar-right">
             <li>
-
-            </li>
+              < a href="/billing">Billing</a></li>
             <li>
-              <a href="#">Help</a>
+              <a href="/contact">Help</a>
             </li>
             <li>
               <a href="/api/logout">Sign Out</a>
