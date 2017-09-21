@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from '../assets/logoWhite.png';
 import googleButton from '../assets/googlesignin.png';
 import './App.css';
 

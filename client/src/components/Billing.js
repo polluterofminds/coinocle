@@ -1,10 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import logo from '../assets/logoWhite.png';
-import googleButton from '../assets/googlesignin.png';
-import './App.css';
-import Landing from './Landing';
 import Payments from './Payments';
 
 class Billing extends Component {

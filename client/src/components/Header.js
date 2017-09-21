@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Payments from './Payments';
 import logo from '../assets/logoWhite.png';
-import googleButton from '../assets/googlesignin.png';
 import './App.css';
 
 class Header extends Component {
@@ -73,7 +71,7 @@ class Header extends Component {
                   </a>
                 </li>
                 <li>
-                  <a href="#">Blog</a>
+                  <a href="">Blog</a>
                 </li>
                 <li>
                   <a href="#">About</a>
