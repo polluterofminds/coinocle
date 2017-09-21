@@ -16,7 +16,13 @@ class Header extends Component {
               <a href="/auth/google">Sign In</a>
             </li>
             <li>
-              <a href="#">Contact</a>
+              <a
+                href="http://www.coinocle.com/contact.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Contact
+              </a>
             </li>
           </ul>
         );
@@ -71,10 +77,22 @@ class Header extends Component {
                   </a>
                 </li>
                 <li>
-                  <a href="">Blog</a>
+                  <a
+                    href="http://blog.coinocle.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Blog
+                  </a>
                 </li>
                 <li>
-                  <a href="#">About</a>
+                  <a
+                    href="http://www.coinocle.com/about.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    About
+                  </a>
                 </li>
               </ul>
               {this.renderContent()}
