@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
-import { connect } from "react-redux";
-import * as actions from "./actions";
-import logo from "./logoWhite.png";
-import googleButton from "./googlesignin.png";
-import "./App.css";
+import React, { Component } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
+import logo from '../assets/logoWhite.png';
+import googleButton from '../assets/googlesignin.png';
+import './App.css';
 
-import Header from "./Header";
-import Landing from "./Landing";
-import Dashboard from "./Dashboard";
-import Billing from "./Billing";
+import Header from './Header';
+import Landing from './Landing';
+import Dashboard from './Dashboard';
+import Billing from './Billing';
 const NewTransaction = () => <h2>NewTransaction</h2>;
 const AddWallet = () => <h2>AddWallet</h2>;
 const Settings = () => <h2>Settings</h2>;
@@ -38,4 +38,4 @@ class App extends Component {
   }
 }
 
-export default connect(null, actions) (App);
+export default connect(null, actions)(App);

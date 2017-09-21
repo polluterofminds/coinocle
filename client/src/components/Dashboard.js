@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import logo from "./logoWhite.png";
-import googleButton from "./googlesignin.png";
-import "./App.css";
-import Landing from "./Landing";
+import React, { Component } from 'react';
+import logo from '../assets/logoWhite.png';
+import googleButton from '../assets/googlesignin.png';
+import './App.css';
+import Landing from './Landing';
 
 class Dashboard extends Component {
   render() {
@@ -20,12 +20,20 @@ class Dashboard extends Component {
                   <th className="text-center">Current Value</th>
                 </tr>
                 <tr>
-                  <td><a className="addAWallet" href="#">Add a wallet</a></td>
+                  <td>
+                    <a className="addAWallet" href="#">
+                      Add a wallet
+                    </a>
+                  </td>
                   <td className="empty-state">$0.00</td>
                 </tr>
                 <tr>
-                  <td><span className="emptyTD"></span></td>
-                  <td><span className="emptyTD"></span></td>
+                  <td>
+                    <span className="emptyTD" />
+                  </td>
+                  <td>
+                    <span className="emptyTD" />
+                  </td>
                 </tr>
               </table>
               <h3>Wallets</h3>
@@ -33,7 +41,9 @@ class Dashboard extends Component {
           </div>
         </div>
         <div className="addTransactionButton">
-          <a href="#" className="text-center plus-sign">+</a>
+          <a href="#" className="text-center plus-sign">
+            +
+          </a>
         </div>
       </div>
     );

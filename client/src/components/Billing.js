@@ -1,17 +1,16 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import logo from "./logoWhite.png";
-import googleButton from "./googlesignin.png";
-import "./App.css";
-import Landing from "./Landing";
-import Payments from "./Payments"
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import logo from '../assets/logoWhite.png';
+import googleButton from '../assets/googlesignin.png';
+import './App.css';
+import Landing from './Landing';
+import Payments from './Payments';
 
 class Billing extends Component {
-
   render() {
-    const planName = "Yearly";
-    const amountDue = "$99.99";
+    const planName = 'Yearly';
+    const amountDue = '$99.99';
 
     return (
       <div className="billing-main">
@@ -26,13 +25,11 @@ class Billing extends Component {
         <div className="row billing-additional">
           <div className="col-md-6 billing-cards">
             <h2 className="text-center">Billing History</h2>
-            <p>
-              
-            </p>
+            <p />
           </div>
           <div className="col-md-6 billing-cards">
             <h2 className="text-center">Switch to a Yearly Plan</h2>
-            <p></p>
+            <p />
           </div>
         </div>
       </div>

@@ -1,9 +1,10 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import Payments from "./Payments"
-import logo from "./logoWhite.png";
-import "./App.css";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import Payments from './Payments';
+import logo from '../assets/logoWhite.png';
+import googleButton from '../assets/googlesignin.png';
+import './App.css';
 
 class Header extends Component {
   renderContent() {
@@ -25,7 +26,8 @@ class Header extends Component {
         return (
           <ul className="nav navbar-nav navbar-right">
             <li>
-              < a href="/billing">Billing</a></li>
+              <a href="/billing">Billing</a>
+            </li>
             <li>
               <a href="/contact">Help</a>
             </li>
@@ -54,7 +56,7 @@ class Header extends Component {
                 <span className="glyphicon glyphicon-option-vertical" />
               </button>
               <Link
-                to={this.props.auth ? "/dashboard" : "/"}
+                to={this.props.auth ? '/dashboard' : '/'}
                 className="navbar-brand"
               >
                 <img src={logo} alt="Coinocle" />
