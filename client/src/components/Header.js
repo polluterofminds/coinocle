@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import logo from '../assets/logoWhite.png';
-import './App.css';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import logo from "../assets/logoWhite.png";
+import "./App.css";
+import Payments from "./Payments";
 
 class Header extends Component {
   renderContent() {
@@ -27,6 +28,8 @@ class Header extends Component {
           </ul>
         );
       default:
+
+        if (this.props.auth.credits > 0) {
         return (
           <ul className="nav navbar-nav navbar-right">
             <li>
@@ -38,8 +41,29 @@ class Header extends Component {
             <li>
               <a href="/api/logout">Sign Out</a>
             </li>
+
+            <li><a>Credits: {this.props.auth.credits}</a></li>
           </ul>
         );
+      } else {
+        return (
+          <ul className="nav navbar-nav navbar-right">
+            <li>
+              <a href="/billing">Billing</a>
+            </li>
+            <li>
+              <a href="/contact">Help</a>
+            </li>
+            <li>
+              <a href="/api/logout">Sign Out</a>
+            </li>
+            <li>
+              <a href="/billing"><button className="payment-warning"><span className="glyphicon glyphicon-info-sign"></span>Payment Due</button></a>
+            </li>
+
+          </ul>
+        );
+      }
     }
   }
 
@@ -60,7 +84,7 @@ class Header extends Component {
                 <span className="glyphicon glyphicon-option-vertical" />
               </button>
               <Link
-                to={this.props.auth ? '/dashboard' : '/'}
+                to={this.props.auth ? "/dashboard" : "/"}
                 className="navbar-brand"
               >
                 <img src={logo} alt="Coinocle" />
