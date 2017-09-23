@@ -11,7 +11,7 @@ class Dashboard extends Component {
             <h1 className="total-wallet-value">$0.00</h1>
             <h3>Total Current Value</h3>
             <div className="wallet-table">
-              <table className="table-detail">
+              <table className="table table-bordered table-striped table-hover">
                 <tr>
                   <th className="text-center">Wallet Name</th>
                   <th className="text-center">Current Value</th>
