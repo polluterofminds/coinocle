@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import './App.css';
 
 class Dashboard extends Component {
@@ -18,9 +19,9 @@ class Dashboard extends Component {
                 </tr>
                 <tr>
                   <td>
-                    <a className="addAWallet" href="#">
+                    <Link to="/wallets/new" className="addAWallet" href="#">
                       Add a wallet
-                    </a>
+                    </Link>
                   </td>
                   <td className="empty-state">$0.00</td>
                 </tr>

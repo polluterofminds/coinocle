@@ -84,7 +84,7 @@ class Header extends Component {
                 <span className="glyphicon glyphicon-option-vertical" />
               </button>
               <Link
-                to={this.props.auth ? "/dashboard" : "/"}
+                to={this.props.auth ? "/wallets" : "/"}
                 className="navbar-brand"
               >
                 <img src={logo} alt="Coinocle" />

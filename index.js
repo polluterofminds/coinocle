@@ -5,7 +5,7 @@ const passport = require('passport');
 const bodyParser = require('body-parser');
 const keys = require('./config/keys');
 require('./models/User');
-require('./models/wallet');
+require('./models/Wallets');
 require('./services/passport');
 
 mongoose.Promise = global.Promise;
@@ -27,6 +27,7 @@ app.use(passport.session());
 
 require("./routes/authroutes")(app);
 require("./routes/billingRoute")(app);
+require("./routes/walletRoutes")(app);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
