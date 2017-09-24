@@ -262,6 +262,65 @@ a.plus-sign, a.plus-sign:hover {
   height: 400px;
 }
 
+/*Add Wallet Page*/
+
+.addWallet {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+.addWallet p {
+  font-size: 20px;
+  font-weight: 200;
+}
+
+.wallet-save {
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.2s;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  border: none;
+  background-color: #D5982E;
+  color: #fff;
+  width: 130px;
+  height: 35px;
+  font-size: 18px;
+  font-weight: 100;
+  margin-top: 25px;
+}
+
+.wallet-input {
+  width: 300px;
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  border:none;
+  border-bottom:1px solid #757575;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.wallet-input:focus {
+  outline: none;
+}
+
+.wallet-select {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #bdbdbd;
+    outline: 0;
+    height: 35px;
+    line-height: 3rem;
+    padding: 0;
+    font-size: 18px;
+}
+
+.addWallet h1 {
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
 
 /*Media Queries*/
 
@@ -305,6 +364,7 @@ a.plus-sign, a.plus-sign:hover {
     color: #3f3f3f;
   }
 }
+
 
 /*.navbar-default{
   border-color: #fff;
