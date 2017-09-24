@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import './App.css';
 
-class Dashboard extends Component {
+class Wallets extends Component {
+
   render() {
     return (
       <div>
         <div className="container text-center">
           <h2>Dashboard</h2>
           <div>
-            <h1 className="total-wallet-value">$0.00</h1>
+            <Link to="/dashboard"><h1 className="total-wallet-value">$0.00</h1></Link>
             <h3>Total Current Value</h3>
             <div className="wallet-table">
               <table className="table table-bordered table-striped table-hover">
@@ -48,4 +49,4 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+export default Wallets;
