@@ -273,6 +273,7 @@ a.plus-sign, a.plus-sign:hover {
 .addWallet p {
   font-size: 20px;
   font-weight: 200;
+  margin-top: 25px;
 }
 
 .wallet-save {

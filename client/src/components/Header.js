@@ -95,29 +95,7 @@ class Header extends Component {
               id="bs-example-navbar-collapse-1"
             >
               <ul className="nav navbar-nav">
-                <li>
-                  <a href="/">
-                    Home <span className="sr-only">(current)</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="http://blog.coinocle.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Blog
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="http://www.coinocle.com/about.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    About
-                  </a>
-                </li>
+                
               </ul>
               {this.renderContent()}
             </div>
