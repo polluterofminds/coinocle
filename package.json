@@ -17,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.17.2",
     "chart.js": "^2.7.0",
     "concurrently": "^3.5.0",
@@ -28,6 +29,7 @@
     "nodemon": "^1.11.0",
     "passport": "^0.3.2",
     "passport-google-oauth20": "^1.0.0",
+    "passport-local": "^1.0.0",
     "path-parser": "^2.0.2",
     "react-chartjs-2": "^2.6.2",
     "sendgrid": "^5.1.2",
