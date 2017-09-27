@@ -6,8 +6,8 @@ module.exports = {
   cookieKey: process.env.COOKIE_KEY,
   stripePublishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
   stripeSecretKey: process.env.STRIPE_SECRET_KEY
-  twitterConsumerKey: TWITTER_CONSUMER_KEY,
-  twitterConsumerSecret: TWITTER_CONSUMER_SECRET,
-  facebookClientID: FACEBOOK_APP_ID,
-  facebookClientSecret: FACEBOOK_APP_SECRET
+  twitterConsumerKey: process.env.TWITTER_CONSUMER_KEY,
+  twitterConsumerSecret: process.env.TWITTER_CONSUMER_SECRET,
+  facebookClientID: process.env.FACEBOOK_APP_ID,
+  facebookClientSecret: process.env.FACEBOOK_APP_SECRET
 };

@@ -54,13 +54,15 @@ passport.use(
       const existingUser = await User.findOne({ twitterId: profile.id });
 
       if (existingUser) {
+        console.log(profile)
         return done(null, existingUser);
       }
 
       const user = await new User({
-        twitterId: profile.id,
-        displayName: profile.displayName
+        twitterId: profile.user_id,
+        displayName: screen_name
       }).save();
+      console.log(profile);
       done(null, user);
     }
   )
