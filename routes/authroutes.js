@@ -24,4 +24,29 @@ module.exports = app => {
   app.get("/api/current_user", (req, res) => {
     res.send(req.user);
   });
+
+  app.get(
+    "/auth/twitter",
+    passport.authenticate("twitter", {
+      scope: ["profile", "email"]
+    })
+  );
+
+  app.get(
+    "/auth/twitter/callback",
+    passport.authenticate("twitter", (req, res) => {
+      res.redirect("/wallets");
+    })
+  );
+
+  app.get("/auth/github", passport.authenticate("github"));
+
+  app.get(
+    "/auth/github/callback",
+    passport.authenticate("github", { failureRedirect: "/" }),
+    function(req, res) {
+      // Successful authentication, redirect home.
+      res.redirect("/wallets");
+    }
+  );
 };

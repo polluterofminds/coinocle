@@ -10,6 +10,8 @@ import Wallets from './Wallets';
 import Billing from './Billing';
 import NewWallet from './NewWallet';
 import Dashboard from "./Dashboard";
+import Login from "./Login";
+import SignUp from "./SignUp";
 const NewTransaction = () => <h2>NewTransaction</h2>;
 // const Settings = () => <h2>Settings</h2>;
 // const Wallets = () => <h2>Wallets</h2>;
@@ -32,6 +34,8 @@ class App extends Component {
             <Route exact path="/wallets/new" component={NewWallet} />
             <Route exact path="/transactions/new" component={NewTransaction} />
             <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={SignUp} />
           </div>
         </BrowserRouter>
       </div>

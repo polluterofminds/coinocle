@@ -1,12 +1,16 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cookieSession = require('cookie-session');
-const passport = require('passport');
-const bodyParser = require('body-parser');
-const keys = require('./config/keys');
-require('./models/User');
-require('./models/Wallets');
-require('./services/passport');
+const express = require("express");
+const mongoose = require("mongoose");
+const cookieSession = require("cookie-session");
+const passport = require("passport");
+const bodyParser = require("body-parser");
+const flash = require("connect-flash");
+const morgan = require("morgan");
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
+const keys = require("./config/keys");
+require("./models/User");
+require("./models/Wallets");
+require("./services/passport");
 
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI, { useMongoClient: true });
@@ -14,6 +18,8 @@ mongoose.connect(keys.mongoURI, { useMongoClient: true });
 const app = express();
 
 app.use(bodyParser.json());
+app.use(morgan("dev")); // log every request to the console
+app.use(cookieParser()); // read cookies (needed for auth)
 
 app.use(
   cookieSession({
@@ -24,6 +30,7 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash()); // use connect-flash for flash messages stored in session
 
 require("./routes/authroutes")(app);
 require("./routes/billingRoute")(app);
