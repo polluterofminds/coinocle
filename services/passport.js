@@ -2,7 +2,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const TwitterStrategy = require("passport-twitter").Strategy;
-const GitHubStrategy = require("passport-github").Strategy;
+const FacebookStrategy = require("passport-facebook").Strategy;
 const mongoose = require("mongoose");
 const keys = require("../config/keys");
 const User = mongoose.model("users");
@@ -15,14 +15,6 @@ passport.deserializeUser((id, done) => {
   User.findById(id).then(user => {
     done(null, user);
   });
-});
-
-passport.serializeUser(function(user, cb) {
-  cb(null, user);
-});
-
-passport.deserializeUser(function(obj, cb) {
-  cb(null, obj);
 });
 
 passport.use(
@@ -58,8 +50,8 @@ passport.use(
       callbackURL: "/auth/twitter/callback",
       proxy: true
     },
-    async (token, profile, done) => {
-      const existingUser = await User.findOne({ googleId: profile.id });
+    async (token, tokenSecret, profile, cb, done) => {
+      const existingUser = await User.findOne({ twitterId: profile.id });
 
       if (existingUser) {
         return done(null, existingUser);
@@ -74,14 +66,26 @@ passport.use(
   )
 );
 
-passport.use(new GitHubStrategy({
-    clientID: keys.githubClientID,
-    clientSecret: keys.githubClientSecret,
-    callbackURL: "http://localhost:3000/auth/github/callback"
-  },
-  function(accessToken, refreshToken, profile, cb) {
-    User.findOrCreate({ githubId: profile.id }, function (err, user) {
-      return cb(err, user);
-    });
-  }
-));
+// passport.use(
+//   new FacebookStrategy(
+//     {
+//       clientID: keys.facebookClientID,
+//       clientSecret: keys.facebookClientSecret,
+//       callbackURL: "/auth/facebook/callback",
+//       proxy: true
+//     },
+//     async (accessToken, refreshToken, profile, cb, done) => {
+//       const existingUser = await User.findOne({ facebookId: profile.id });
+//
+//       if (existingUser) {
+//         return done(null, existingUser);
+//       }
+//
+//       const user = await new User({
+//         facebookId: profile.Id,
+//         displayName: profile.displayName
+//       }).save();
+//       done(null, user);
+//     }
+//   )
+// );

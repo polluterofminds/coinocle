@@ -16,28 +16,14 @@ module.exports = app => {
     }
   );
 
-  app.get("/api/logout", (req, res) => {
-    req.logout();
-    res.redirect("/");
+  app.get("/auth/twitter", passport.authenticate("twitter"));
+
+  app.get('/auth/twitter/callback',
+  passport.authenticate('twitter', { failureRedirect: '/' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/wallets');
   });
-
-  app.get("/api/current_user", (req, res) => {
-    res.send(req.user);
-  });
-
-  app.get(
-    "/auth/twitter",
-    passport.authenticate("twitter", {
-      scope: ["profile", "email"]
-    })
-  );
-
-  app.get(
-    "/auth/twitter/callback",
-    passport.authenticate("twitter", (req, res) => {
-      res.redirect("/wallets");
-    })
-  );
 
   app.get("/auth/github", passport.authenticate("github"));
 
@@ -49,4 +35,23 @@ module.exports = app => {
       res.redirect("/wallets");
     }
   );
+
+  app.get('/auth/facebook',
+  passport.authenticate('facebook'));
+
+  app.get('/auth/facebook/callback',
+    passport.authenticate('facebook', { failureRedirect: '/' }),
+    function(req, res) {
+      // Successful authentication, redirect home.
+      res.redirect('/wallets');
+    });
+
+  app.get("/api/logout", (req, res) => {
+    req.logout();
+    res.redirect("/");
+  });
+
+  app.get("/api/current_user", (req, res) => {
+    res.send(req.user);
+  });
 };

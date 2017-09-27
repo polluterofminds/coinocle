@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import logo from "../assets/logoWhite.png";
 import "./App.css";
-import Payments from "./Payments";
+
 
 class Header extends Component {
   renderContent() {
@@ -14,7 +14,7 @@ class Header extends Component {
         return (
           <ul className="nav navbar-nav navbar-right">
             <li>
-              <a href="/auth/google">Sign In</a>
+
             </li>
             <li>
               <a
@@ -95,7 +95,7 @@ class Header extends Component {
               id="bs-example-navbar-collapse-1"
             >
               <ul className="nav navbar-nav">
-                
+
               </ul>
               {this.renderContent()}
             </div>

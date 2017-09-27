@@ -10,5 +10,7 @@ module.exports = {
   twitterConsumerKey: "MYd5lSxqDKxGOcDUCmBelEnvA",
   twitterConsumerSecret: "X460HTe2T2FFNmnISSFFC1d7tlXrI3my53bmGsFmVCXsBiZnsj",
   githubClientID: "dabea3a38fa1330372e9",
-  githubClientSecret: "ac8b2775dce1e5c530e80577ad79d9ae2db477ee"
+  githubClientSecret: "ac8b2775dce1e5c530e80577ad79d9ae2db477ee",
+  facebookClientID: "",
+  facebookClientSecret: ""
 };
