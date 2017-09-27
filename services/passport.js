@@ -33,7 +33,7 @@ passport.use(
       }
 
       const user = await new User({
-        googleId: profile.id,
+        userId: profile.id,
         displayName: profile.displayName,
         email: profile.emails[0].value
       }).save();
@@ -51,7 +51,7 @@ passport.use(
       proxy: true
     },
     async (token, tokenSecret, profile, cb, done) => {
-      const existingUser = await User.findOne({ twitterId: profile.id });
+      const existingUser = await User.findOne({ userId: profile.id });
 
       if (existingUser) {
         console.log(profile)
@@ -59,8 +59,8 @@ passport.use(
       }
 
       const user = await new User({
-        twitterId: profile.user_id,
-        displayName: screen_name
+        userId: cb.id,
+        displayName: cb.displayName
       }).save();
       console.log(profile);
       done(null, user);
@@ -74,19 +74,23 @@ passport.use(
       clientID: keys.facebookClientID,
       clientSecret: keys.facebookClientSecret,
       callbackURL: "/auth/facebook/callback",
+      profileFields: ['id', 'displayName', 'email'],
       proxy: true
     },
     async (accessToken, refreshToken, profile, cb, done) => {
-      const existingUser = await User.findOne({ facebookId: profile.id });
+      const existingUser = await User.findOne({ facebookId: cb.id });
 
       if (existingUser) {
+        console.log(profile);
         return done(null, existingUser);
       }
 
       const user = await new User({
-        facebookId: profile.Id,
-        displayName: profile.displayName
+        userId: cb.id,
+        displayName: cb.displayName,
+        email: cb.email
       }).save();
+      console.log(profile);
       done(null, user);
     }
   )
