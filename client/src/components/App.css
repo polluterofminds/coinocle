@@ -66,6 +66,15 @@
   margin-top: 40px;
 }
 
+/*Error Messages*/
+
+.errorMessage {
+  font-size: 14px!important;
+  color: red;
+  margin-top: 10px!important;
+}
+
+
 /*Sign in buttons*/
 
 .login-box {

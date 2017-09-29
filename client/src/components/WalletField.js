@@ -2,10 +2,12 @@
 
 import React from "react";
 
-export default ({ input }) => {
+export default ({ input, label, meta: { error, touched } }) => {
   return (
     <div>
+      <p><label>{label}</label></p>
       <input {...input} />
+      <p className="errorMessage">{touched && error}</p>
     </div>
   );
 };
