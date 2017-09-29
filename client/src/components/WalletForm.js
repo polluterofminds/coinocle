@@ -1,6 +1,7 @@
 import _ from "lodash";
 import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import WalletField from "./WalletField";
 import "./App.css";
@@ -47,12 +48,12 @@ class WalletForm extends Component {
           <h1 className="text-center">Add a wallet & starting balance</h1>
           <div className="text-center">
             <form
-              onSubmit={this.props.handleSubmit(values => console.log(values))}
+              onSubmit={this.props.handleSubmit(this.props.onWalletSubmit)}
             >
               {this.renderFields()}
               <p>
                 <button className="wallet-save" type="submit">
-                  Save
+                  Next
                 </button>
               </p>
             </form>
@@ -92,5 +93,6 @@ function validate(values){
 
 export default reduxForm({
   validate,
-  form: "walletForm"
+  form: "walletForm",
+  destroyOnUnmount: false
 })(WalletForm);

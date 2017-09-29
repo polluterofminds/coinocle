@@ -4,9 +4,12 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 // import { Link } from "react-router-dom";
 import WalletForm from "./WalletForm";
+import WalletReview from "./WalletFormReview";
 import './App.css';
 
 class NewWallet extends Component {
+
+  state = { showReviewForm: false };
 
   renderContent() {
     switch (this.props.auth) {
@@ -27,13 +30,16 @@ class NewWallet extends Component {
           </div>
         );
       default:
-        return (
-          <div>
-            <WalletForm />
-          </div>
-        );
+        if (this.state.showReviewForm) {
+          return (
+            <WalletReview
+              onCancel={() => this.setState({ showReviewForm: false })}
+            />);
+        } else {
+        return  (<WalletForm onWalletSubmit={() => this.setState({ showReviewForm: true })} />);
       }
     }
+  }
 
   render() {
     return (
