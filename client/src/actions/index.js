@@ -1,5 +1,5 @@
 import axios from "axios";
-import { FETCH_USER } from "./types";
+import { FETCH_USER, FETCH_WALLETS } from "./types";
 
 export const fetchUser = () => async dispatch => {
   const res = await axios.get("/api/current_user");
@@ -18,4 +18,10 @@ export const addWallet = (values, history) => async dispatch => {
 
   history.push("/wallets");
   dispatch({ type: FETCH_USER, payload: res.data });
+};
+
+export const fetchWallets = () => async dispatch => {
+  const res = await axios.get("/api/wallets");
+
+  dispatch({ type: FETCH_WALLETS, payload: res.data });
 };

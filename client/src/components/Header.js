@@ -6,6 +6,7 @@ import "./App.css";
 
 
 class Header extends Component {
+
   renderContent() {
     switch (this.props.auth) {
       case null:
@@ -106,8 +107,8 @@ class Header extends Component {
   }
 }
 
-function mapStateToProps({ auth }) {
-  return { auth };
+function mapStateToProps({ auth, form }) {
+  return { auth, form };
 }
 
 export default connect(mapStateToProps)(Header);

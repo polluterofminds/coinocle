@@ -1,9 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import WalletsList from "./WalletsList";
 import "./App.css";
 
 class Wallets extends Component {
+constructor(){
+  super();
+}
+
   renderContent() {
     switch (this.props.auth) {
       case null:
@@ -27,36 +32,14 @@ class Wallets extends Component {
           <div>
           <div className="container text-center">
             <h2>Dashboard</h2>
+            <h4>Total Current Value</h4>
             <div>
               <Link to="/dashboard">
                 <h1 className="total-wallet-value">$0.00</h1>
               </Link>
-              <h3>Total Current Value</h3>
-              <div className="wallet-table">
-                <table className="table table-bordered table-striped table-hover">
-                  <tr>
-                    <th className="text-center">Wallet Name</th>
-                    <th className="text-center">Current Value</th>
-                  </tr>
-                  <tr>
-                    <td>
-                      <Link to="/wallets/new" className="addAWallet" href="#">
-                        Add a wallet
-                      </Link>
-                    </td>
-                    <td className="empty-state">$0.00</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <span className="emptyTD" />
-                    </td>
-                    <td>
-                      <span className="emptyTD" />
-                    </td>
-                  </tr>
-                </table>
-                <h3>Wallets</h3>
-              </div>
+              <h3>Wallets</h3>
+              <WalletsList />
+              
             </div>
           </div>
           <div className="addTransactionButton">
@@ -68,7 +51,7 @@ class Wallets extends Component {
         );
       }
     }
-  
+
 
   render() {
     return (
@@ -79,7 +62,7 @@ class Wallets extends Component {
   }
 }
 
-function mapStateToProps({ auth }) {
-  return { auth };
+function mapStateToProps({ auth, form }) {
+  return { auth, form };
 }
 export default connect(mapStateToProps)(Wallets);
