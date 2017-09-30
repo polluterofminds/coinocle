@@ -7,7 +7,7 @@ const walletsSchema = new Schema({
     type: Number,
     default: 0
   },
-  ehtereum: {
+  ethereum: {
     type: Number,
     default: 0
   },

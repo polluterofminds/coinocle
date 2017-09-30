@@ -1,23 +1,57 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchWallets } from "../actions";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 class WalletsList extends Component {
+
+  constructor () {
+      super();
+      this.state = {
+          btcprice: '',
+          ltcprice: '',
+          ethprice: ''
+      };
+  }
+  // This is called when an instance of a component is being created and inserted into the DOM.
+  componentWillMount () {
+      axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC&tsyms=USD')
+          .then(res => {
+              // We set the latest prices in the state to the prices gotten from Cryptocurrency.
+              this.setState({ btcprice: res.data.BTC.USD });
+              this.setState({ ethprice: res.data.ETH.USD });
+              this.setState({ ltcprice: res.data.LTC.USD });
+          })
+          // Catch any error here
+          .catch(error => {
+              console.log(error)
+          })
+  }
 
   componentDidMount() {
     this.props.fetchWallets();
   }
 
+
   renderWallets() {
     return this.props.wallets.map(wallet => {
+      var bitcoin = this.state.btcprice;
+      var ethereum = this.state.ethprice;
+      var litecoin = this.state.ltcprice;
+      var bitcoinValue = wallet.bitcoin * bitcoin;
+      var ethereumValue = wallet.ethereum * ethereum;
+      var litecoinValue = wallet.litecoin * litecoin;
+
+      var totalValue = bitcoinValue + ethereumValue + litecoinValue;
+
       return (
         <tr>
           <td>
             {wallet.title}
           </td>
-          <td className="empty-state">
-            {wallet.bitcoin}
+          <td>
+            ${totalValue.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,')}
           </td>
         </tr>
 

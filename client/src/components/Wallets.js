@@ -39,7 +39,7 @@ constructor(){
               </Link>
               <h3>Wallets</h3>
               <WalletsList />
-              
+
             </div>
           </div>
           <div className="addTransactionButton">

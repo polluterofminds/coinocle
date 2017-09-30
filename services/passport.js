@@ -26,7 +26,7 @@ passport.use(
       proxy: true
     },
     async (accessToken, refreshToken, profile, done) => {
-      const existingUser = await User.findOne({ googleId: profile.id });
+      const existingUser = await User.findOne({ userId: profile.id });
 
       if (existingUser) {
         return done(null, existingUser);
@@ -51,7 +51,7 @@ passport.use(
       proxy: true
     },
     async (token, tokenSecret, profile, cb, done) => {
-      const existingUser = await User.findOne({ userId: profile.id });
+      const existingUser = await User.findOne({ userId: cb.id });
 
       if (existingUser) {
         console.log(profile)
@@ -78,7 +78,7 @@ passport.use(
       proxy: true
     },
     async (accessToken, refreshToken, profile, cb, done) => {
-      const existingUser = await User.findOne({ facebookId: cb.id });
+      const existingUser = await User.findOne({ userId: cb.id });
 
       if (existingUser) {
         console.log(profile);

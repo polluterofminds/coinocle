@@ -5,17 +5,19 @@ import { withRouter } from "react-router-dom";
 
 const WalletReview = ({ onCancel, formValues, addWallet, history }) => {
   return (
-    <div>
-      <h4>Please confirm your wallet details</h4>
-      <div>
+    <div className="addWallet">
+      <h3 className="text-center">Please confirm your wallet details</h3>
+      <div className="text-center review">
+
         <label>Wallet Name</label>
-        <div>{formValues.title}</div>
+        <div><strong>{formValues.title}</strong></div>
         <label>Total Bitcoin</label>
-        <div>{formValues.bitcoin}</div>
+        <div><strong>{formValues.bitcoin}</strong></div>
         <label>Total Ethereum</label>
-        <div>{formValues.ethereum}</div>
+        <div><strong>{formValues.ethereum}</strong></div>
         <label>Total Litecoin</label>
-        <div>{formValues.litecoin}</div>
+        <div><strong>{formValues.litecoin}</strong></div>
+
       </div>
       <button className="btn btn-cancel" onClick={onCancel}>
         Edit
@@ -23,6 +25,7 @@ const WalletReview = ({ onCancel, formValues, addWallet, history }) => {
       <button className="wallet-save right" onClick={() => addWallet(formValues, history)}>
         Add
       </button>
+
     </div>
   );
 };

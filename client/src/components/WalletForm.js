@@ -47,7 +47,7 @@ class WalletForm extends Component {
         <div className="addWallet">
           <h1 className="text-center">Add a wallet & starting balance</h1>
           <div className="text-center">
-            <form
+            <form className="addwalletform"
               onSubmit={this.props.handleSubmit(this.props.onWalletSubmit)}
             >
               {this.renderFields()}
