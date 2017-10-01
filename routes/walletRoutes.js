@@ -7,7 +7,6 @@ const Wallet = mongoose.model("wallets");
 module.exports = app => {
   app.get("/api/wallets", requireLogin, requireCredits, async (req, res) => {
     const wallets = await Wallet.find({ _user: req.user.id });
-
     res.send(wallets);
   });
 

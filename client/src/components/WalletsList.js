@@ -14,16 +14,14 @@ class WalletsList extends Component {
           ethprice: ''
       };
   }
-  // This is called when an instance of a component is being created and inserted into the DOM.
   componentWillMount () {
       axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC&tsyms=USD')
           .then(res => {
-              // We set the latest prices in the state to the prices gotten from Cryptocurrency.
               this.setState({ btcprice: res.data.BTC.USD });
               this.setState({ ethprice: res.data.ETH.USD });
               this.setState({ ltcprice: res.data.LTC.USD });
           })
-          // Catch any error here
+
           .catch(error => {
               console.log(error)
           })
@@ -33,8 +31,8 @@ class WalletsList extends Component {
     this.props.fetchWallets();
   }
 
-
   renderWallets() {
+
     return this.props.wallets.map(wallet => {
       var bitcoin = this.state.btcprice;
       var ethereum = this.state.ethprice;
@@ -45,8 +43,10 @@ class WalletsList extends Component {
 
       var totalValue = bitcoinValue + ethereumValue + litecoinValue;
 
+
+
       return (
-        <tr>
+        <tr key={wallet.title}>
           <td>
             {wallet.title}
           </td>
@@ -55,20 +55,34 @@ class WalletsList extends Component {
           </td>
         </tr>
 
-
-
       );
     });
   }
 
   render() {
+    // var portfolio = this.props.wallets;
+    //
+    // // Get an array of checkout values only
+    // var bitcoinAmount = portfolio.map(function(item) {
+    //     return item.bitcoin;
+    // });
+    //
+    // // Sum the array's values from left to right
+    // var totalBit = bitcoinAmount.reduce(function(prev, curr) {
+    //     return prev + curr;
+    // }, 0);
+    // console.log(totalBit);
+
     return (
       <div className="wallet-table">
         <table className="table table-bordered table-striped table-hover">
+          <thead>
           <tr>
             <th className="text-center">Wallet Name</th>
             <th className="text-center">Current Value</th>
           </tr>
+          </thead>
+          <tbody>
           <tr>
             <td>
               <Link to="/wallets/new" className="addAWallet" href="#">
@@ -87,6 +101,7 @@ class WalletsList extends Component {
               <span className="emptyTD" />
             </td>
           </tr>
+          </tbody>
         </table>
       </div>
     );

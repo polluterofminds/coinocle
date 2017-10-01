@@ -2,12 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import WalletsList from "./WalletsList";
+import TotalValue from "./TotalValue";
 import "./App.css";
 
 class Wallets extends Component {
-constructor(){
-  super();
-}
+
 
   renderContent() {
     switch (this.props.auth) {
@@ -35,7 +34,7 @@ constructor(){
             <h4>Total Current Value</h4>
             <div>
               <Link to="/dashboard">
-                <h1 className="total-wallet-value">$0.00</h1>
+                <TotalValue />
               </Link>
               <h3>Wallets</h3>
               <WalletsList />
@@ -43,7 +42,7 @@ constructor(){
             </div>
           </div>
           <div className="addTransactionButton">
-            <a href="#" className="text-center plus-sign">
+            <a href="/transactions/new" className="text-center plus-sign">
               +
             </a>
           </div>

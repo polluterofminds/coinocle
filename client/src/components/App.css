@@ -462,6 +462,18 @@ a.plus-sign, a.plus-sign:hover {
   margin-top: 25px;
 }
 
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+  border: none;
+}
+
+.table-striped tbody tr:nth-child(odd) {
+  background: #fff;
+}
+
+.table thead tr {
+  border-bottom: 1px solid #e1e1e1;
+}
+
 /*.{
   width: 300px;
   font-size:18px;

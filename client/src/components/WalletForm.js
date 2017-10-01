@@ -1,8 +1,6 @@
-import _ from "lodash";
+// import _ from "lodash";
 import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import WalletField from "./WalletField";
 import "./App.css";
 
@@ -60,7 +58,7 @@ class WalletForm extends Component {
           </div>
         </div>
         <div className="addTransactionButton">
-          <a href="#" className="text-center plus-sign">
+          <a href="/transactions/new" className="text-center plus-sign">
             +
           </a>
         </div>
