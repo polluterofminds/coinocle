@@ -3,7 +3,7 @@ const LocalStrategy = require("passport-local").Strategy;
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const TwitterStrategy = require("passport-twitter").Strategy;
 const FacebookStrategy = require("passport-facebook").Strategy;
-const CoinbaseStrategy = require("passport-coinbase").Strategy;
+// const CoinbaseStrategy = require("passport-coinbase").Strategy;
 const mongoose = require("mongoose");
 const keys = require("../config/keys");
 const User = mongoose.model("users");
@@ -97,29 +97,29 @@ passport.use(
   )
 );
 
-passport.use(
-  new CoinbaseStrategy(
-    {
-      clientID: keys.coinbaseClientID,
-      clientSecret: keys.coinbaseClientSecret,
-      callbackURL: "/auth/coinbase/callback",
-      proxy: true
-    },
-    async (accessToken, refreshToken, profile, done) => {
-      const existingUser = await User.findOne({ userId: user.id });
-
-      if (existingUser) {
-        console.log(profile);
-        return done(null, existingUser);
-      }
-
-      const user = await new User({
-        userId: user.id,
-        displayName: user.displayName,
-        email: user.email
-      }).save();
-      console.log(profile);
-      done(null, user);
-    }
-  )
-);
+// passport.use(
+//   new CoinbaseStrategy(
+//     {
+//       clientID: keys.coinbaseClientID,
+//       clientSecret: keys.coinbaseClientSecret,
+//       callbackURL: "/auth/coinbase/callback",
+//       proxy: true
+//     },
+//     async (accessToken, refreshToken, profile, done) => {
+//       const existingUser = await User.findOne({ userId: user.id });
+//
+//       if (existingUser) {
+//         console.log(profile);
+//         return done(null, existingUser);
+//       }
+//
+//       const user = await new User({
+//         userId: user.id,
+//         displayName: user.displayName,
+//         email: user.email
+//       }).save();
+//       console.log(profile);
+//       done(null, user);
+//     }
+//   )
+// );
