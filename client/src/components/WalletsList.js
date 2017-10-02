@@ -60,18 +60,6 @@ class WalletsList extends Component {
   }
 
   render() {
-    // var portfolio = this.props.wallets;
-    //
-    // // Get an array of checkout values only
-    // var bitcoinAmount = portfolio.map(function(item) {
-    //     return item.bitcoin;
-    // });
-    //
-    // // Sum the array's values from left to right
-    // var totalBit = bitcoinAmount.reduce(function(prev, curr) {
-    //     return prev + curr;
-    // }, 0);
-    // console.log(totalBit);
 
     return (
       <div className="wallet-table">

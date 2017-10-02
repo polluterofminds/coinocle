@@ -36,7 +36,8 @@ class NewWallet extends Component {
               onCancel={() => this.setState({ showReviewForm: false })}
             />);
         } else {
-        return  (<WalletForm onWalletSubmit={() => this.setState({ showReviewForm: true })} />);
+        return  (
+          <WalletForm onWalletSubmit={() => this.setState({ showReviewForm: true })} />);
       }
     }
   }

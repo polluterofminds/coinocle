@@ -238,6 +238,47 @@
 }
 
 
+
+#coinbase-connect {
+    background: ##2A689F;
+    border: 1px solid ##2A689F;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.12), 0 1px 2px 0 rgba(0,0,0,0.24);
+}
+
+#coinbase-connect{
+	  border-color: rgb(85, 172, 238);
+	  background: #2A689F url('../assets/coinbase.png') no-repeat scroll 10px 8px / 22px 30px padding-box border-box;
+	  -webkit-transition: all .8s ease-out;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease-out;
+}
+
+#coinbase-connect span {
+	  box-sizing: border-box;
+    color: rgb(85, 172, 238);
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    border: 0px none rgb(220, 74, 61);
+    outline: rgb(255, 255, 255) none 0px;
+	  -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+#coinbase-connect span {
+	  color: #FFF;
+	  -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
 .signUpButton {
   margin-top: 30px;
 }
@@ -407,7 +448,37 @@ a.plus-sign, a.plus-sign:hover {
   padding-bottom: 20px;
   text-decoration:  none;
   color: #fff;
+  cursor: pointer;
 }
+
+/*Add Transaction Modal*/
+
+.modal-dialog {
+  width: 75%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.modal-content {
+  border-radius: 0;
+}
+
+.new-trans {
+  margin-left: 10px;
+}
+
+.btn, .btn-default {
+  border-radius: 0;
+}
+
+.close {
+  font-size: 40px;
+}
+
+.close span {
+  color: #000;
+}
+
 
 /*Billing page*/
 

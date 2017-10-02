@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import Payments from './Payments';
+import { Link } from "react-router-dom";
+import AddTransactionButton from "./AddTransactionButton";
 
 class Billing extends Component {
   renderContent() {
@@ -44,6 +46,7 @@ class Billing extends Component {
               <p />
             </div>
           </div>
+          <AddTransactionButton />
           </div>
         );
       }

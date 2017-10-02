@@ -12,5 +12,7 @@ module.exports = {
   githubClientID: "dabea3a38fa1330372e9",
   githubClientSecret: "ac8b2775dce1e5c530e80577ad79d9ae2db477ee",
   facebookClientID: "108518623233187",
-  facebookClientSecret: "4abe479410aadd5f077a2ad2b419a81d"
+  facebookClientSecret: "4abe479410aadd5f077a2ad2b419a81d",
+  coinbaseClientID: "447793e7e148b9b2efcbd0cad86385d3ff784172d42ad2a80b003e08e2b6778f",
+  coinbaseClientSecret: "00260bdb66548df151224690d2cbd8a8438be87b017db8008ef8715194133907"
 };

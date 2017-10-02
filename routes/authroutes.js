@@ -26,16 +26,14 @@ module.exports = app => {
     res.redirect('/wallets');
   });
 
-  app.get("/auth/github", passport.authenticate("github"));
+  app.get('/auth/coinbase', passport.authenticate('coinbase'));
 
-  app.get(
-    "/auth/github/callback",
-    passport.authenticate("github", { failureRedirect: "/" }),
-    function(req, res) {
-      // Successful authentication, redirect home.
-      res.redirect("/wallets");
-    }
-  );
+  app.get('/auth/coinbase/callback',
+  passport.authenticate('coinbase', { failureRedirect: '/' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/wallets');
+  });
 
   app.get('/auth/facebook',
   passport.authenticate('facebook'));

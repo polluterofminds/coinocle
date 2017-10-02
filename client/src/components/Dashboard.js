@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import DoughnutExample from "./MainChart";
-// import { Link } from "react-router-dom";
+import AddTransactionButton from "./AddTransactionButton";
+import { Link } from "react-router-dom";
 import './App.css';
 
 class Dashboard extends Component {
@@ -26,8 +27,11 @@ class Dashboard extends Component {
         );
       default:
         return (
-          <div className="chart">
-            <DoughnutExample />
+          <div>
+            <div className="chart">
+              <DoughnutExample />
+            </div>
+            <AddTransactionButton />
           </div>
         );
       }

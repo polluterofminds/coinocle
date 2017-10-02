@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import WalletsList from "./WalletsList";
 import TotalValue from "./TotalValue";
+import AddTransactionButton from "./AddTransactionButton";
 import "./App.css";
 
 class Wallets extends Component {
@@ -41,11 +42,7 @@ class Wallets extends Component {
 
             </div>
           </div>
-          <div className="addTransactionButton">
-            <a href="/transactions/new" className="text-center plus-sign">
-              +
-            </a>
-          </div>
+          <AddTransactionButton />
           </div>
         );
       }
