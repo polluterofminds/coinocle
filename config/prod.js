@@ -9,7 +9,7 @@ module.exports = {
   twitterConsumerKey: process.env.TWITTER_CONSUMER_KEY,
   twitterConsumerSecret: process.env.TWITTER_CONSUMER_SECRET,
   facebookClientID: process.env.FACEBOOK_APP_ID,
-  facebookClientSecret: process.env.FACEBOOK_APP_SECRET,
-  coinbaseClientID: process.env.COINBASE_CLIENT_ID,
-  coinbaseClientSecret: process.env.COINBASE_CLIENT_SECRET
+  facebookClientSecret: process.env.FACEBOOK_APP_SECRET
+  // coinbaseClientID: process.env.COINBASE_CLIENT_ID,
+  // coinbaseClientSecret: process.env.COINBASE_CLIENT_SECRET
 };
