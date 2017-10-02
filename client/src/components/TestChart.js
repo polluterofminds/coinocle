@@ -82,20 +82,21 @@ class TestChart extends Component {
     	datasets: [{
     		data: [bitValue, ethValue, litValue],
     		backgroundColor: [
-    		'#F2A900',
-    		'#3C3C3D',
-    		'#88CBF5'
+    		'#FF6384',
+    		'#36A2EB',
+    		'#FFCE56'
     		],
     		hoverBackgroundColor: [
-    		'#00cc66',
-    		'#00cc66',
-    		'#00cc66'
+    		'#FF6384',
+    		'#36A2EB',
+    		'#FFCE56'
     		]
     	}]
     }
 
     return (
       <div>
+        <h2>Doughnut Example</h2>
         <Doughnut data={data} />
       </div>
     );

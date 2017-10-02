@@ -558,38 +558,6 @@ a.plus-sign, a.plus-sign:hover {
   animation:inputHighlighter 0.3s ease;
 }
 
-/* ANIMATIONS ================ */
-/*@-webkit-keyframes inputHighlighter {
-	from { background:#D5982E; }
-  to 	{ width:0; background:transparent; }
-}
-@-moz-keyframes inputHighlighter {
-	from { background:#D5982E; }
-  to 	{ width:0; background:transparent; }
-}
-@keyframes inputHighlighter {
-	from { background:#D5982E; }
-  to 	{ width:0; background:transparent; }
-}*/
-
-/*.wallet-input:focus {
-  outline: none;
-}
-
-.wallet-select {
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-bottom-color: #bdbdbd;
-    outline: 0;
-    height: 35px;
-    line-height: 3rem;
-    padding: 0;
-    font-size: 18px;
-}*/
-
 .addWallet h1 {
   margin-bottom: 50px;
   margin-top: 50px;
@@ -615,6 +583,13 @@ a.plus-sign, a.plus-sign:hover {
 
 .review div {
   font-size: 20px;
+}
+/*
+Charts*/
+
+.chart {
+  max-width: 80%;
+  margin: auto;
 }
 
 /*Media Queries*/
