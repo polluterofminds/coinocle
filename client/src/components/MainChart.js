@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { fetchWallets } from "../actions";
 import axios from "axios";
 import {Doughnut} from 'react-chartjs-2';
+import {Bar} from 'react-chartjs-2';
 import { Link } from "react-router-dom";
 
 class TestChart extends Component {
@@ -94,10 +95,43 @@ class TestChart extends Component {
     	}]
     }
 
+		const data2 = {
+			labels: ['Bitcoin', 'Ethereum', 'Litecoin'],
+		  datasets: [
+		    {
+		      label: 'Current Price',
+		      backgroundColor: [
+						'#F2A900',
+		    		'#3C3C3D',
+		    		'#88CBF5'
+					],
+		      borderColor: '#000',
+		      borderWidth: 1,
+		      hoverBackgroundColor: '#00cc66',
+		      hoverBorderColor: '#000',
+		      data: [bitcoin, ethereum, litecoin]
+		    }
+		  ]
+		}
+
     return (
-      <div>
-        <Doughnut data={data} />
-      </div>
+			<div className="row">
+				<div className="col-md-6">
+					<h1 className="text-center">Total Portfolio Value</h1>
+	        <Doughnut data={data} />
+	      </div>
+				<div className="col-md-6">
+					<h1 className="text-center">Currency Watch</h1>
+					<Bar
+	          data={data2}
+	          width={100}
+	          height={50}
+	          options={{
+	            maintainAspectRatio: true
+	          }}
+	        />
+				</div>
+			</div>
     );
   }
 }
