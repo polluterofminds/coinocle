@@ -42,6 +42,7 @@ class WalletsList extends Component {
       var litecoinValue = wallet.litecoin * litecoin;
 
       var totalValue = bitcoinValue + ethereumValue + litecoinValue;
+      console.log(wallet._id);
 
 
 
@@ -52,6 +53,9 @@ class WalletsList extends Component {
           </td>
           <td>
             ${totalValue.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,')}
+          </td>
+          <td>
+            <Link to={wallet._id}>Edit</Link>
           </td>
         </tr>
 
@@ -68,20 +72,25 @@ class WalletsList extends Component {
           <tr>
             <th className="text-center">Wallet Name</th>
             <th className="text-center">Current Value</th>
+            <th><span className="emptyTD" /></th>
           </tr>
           </thead>
           <tbody>
           <tr>
             <td>
-              <Link to="/wallets/new" className="addAWallet" href="#">
+              <Link to={"/wallets/new"} className="addAWallet" href="#">
                 Add a wallet
               </Link>
             </td>
             <td className="empty-state">$0.00</td>
+            <td>
+              <span className="emptyTD" />
+            </td>
           </tr>
             {this.renderWallets()}
 
           <tr>
+
             <td>
               <span className="emptyTD" />
             </td>

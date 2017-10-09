@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import NewTransaction from "./NewTransaction";
 import { Link } from "react-router-dom";
 import logo from "../assets/logoWhite.png";
 import "./App.css";
@@ -36,11 +37,11 @@ class AddTransactionButton extends Component {
                   <h3 className="modal-title text-center" id="myModalLabel">New Transaction</h3>
                 </div>
                 <div className="modal-body">
-
+                <NewTransaction />
                 </div>
                 <div className="modal-footer">
                   <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="button" className="wallet-save new-trans">Save changes</button>
+                  <p><button type="submit" className="wallet-save">Save</button></p>
                 </div>
               </div>
             </div>
