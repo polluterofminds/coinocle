@@ -1,16 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
-import axios from "axios";
-import { fetchWallets } from "../actions";
+import * as actions from "../actions";
+import { withRouter } from "react-router-dom";
 
-const TransactionFormReview = ({ onCancel, formValues }) => {
+const TransactionFormReview = ({ onCancel, formValues, updateWallet, history }) => {
   return (
-    <div>
-      <h5>Please confirm transaction</h5>
-      <div>
+    <div className="addWallet">
+      <h3 className="text-center">Please confirm transaction</h3>
+      <div className="text-center review">
         <div>
           <label>Wallet Name</label>
-          <div>{formValues.wallet}</div>
+          <div >{formValues.wallet}</div>
         </div>
         <div>
           <label>Bitcoin Amount</label>
@@ -25,22 +25,13 @@ const TransactionFormReview = ({ onCancel, formValues }) => {
           <div>{formValues.litecoin}</div>
         </div>
       </div>
-      <button onClick={onCancel}>Cancel</button>
-      <button onClick={updateWallet} className="wallet-save">
+      <button className="btn btn-cancel" onClick={onCancel}>Cancel</button>
+      <button onClick={() => updateWallet(formValues, history)} className="wallet-save">
         Save
       </button>
     </div>
   );
 };
-
-function updateWallet(id, formValues) {
-  console.log("You submitted!");
-  axios.put("/api/wallets/:wallet_id", formValues)
-    .catch(err => {
-      console.log(err);
-    });
-  // Wallet.findOneAndUpdate({ _id: formValues.wallet }, { bitcoin: formValues.bitcoin })
-}
 
 function mapStateToProps(state) {
   return {
@@ -48,6 +39,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { fetchWallets })(
-  TransactionFormReview
-);
+export default connect(mapStateToProps, actions)(withRouter(TransactionFormReview));

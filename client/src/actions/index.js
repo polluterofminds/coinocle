@@ -27,7 +27,7 @@ export const fetchWallets = () => async dispatch => {
 };
 
 export const updateWallet = (values, history) => async dispatch => {
-  const res = await axios.put("/api/wallets/:wallet_id", values);
+  const res = await axios.put("/api/wallets/" + values.wallet, values);
 
   history.push("/wallets");
   dispatch({ type: FETCH_USER, payload: res.data });

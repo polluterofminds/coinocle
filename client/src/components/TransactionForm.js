@@ -8,98 +8,57 @@ import * as actions from "../actions";
 
 class TransactionForm extends Component {
 
-  constructor () {
-      super();
-      this.state = {
-          btcprice: '',
-          ltcprice: '',
-          ethprice: ''
-      };
-  }
-  componentWillMount () {
-      axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC&tsyms=USD')
-          .then(res => {
-              this.setState({ btcprice: res.data.BTC.USD });
-              this.setState({ ethprice: res.data.ETH.USD });
-              this.setState({ ltcprice: res.data.LTC.USD });
-          })
-
-          .catch(error => {
-              console.log(error)
-          })
-  }
-
-  componentDidMount() {
-    this.props.fetchWallets();
-  }
-
-  renderWallets() {
-
-    return this.props.wallets.map(wallet => {
-      var bitcoin = this.state.btcprice;
-      var ethereum = this.state.ethprice;
-      var litecoin = this.state.ltcprice;
-      var bitcoinValue = wallet.bitcoin;
-      var ethereumValue = wallet.ethereum;
-      var litecoinValue = wallet.litecoin;
-
-      var totalValue = bitcoinValue + ethereumValue + litecoinValue;
-
-
-
-
-      return (
-        console.log(wallet)
-      );
-    });
-  }
-
   render() {
-    {this.renderWallets()}
 
     return (
       <div>
-        <form
-          // onSubmit={fireAway}
-          onSubmit={this.props.handleSubmit(this.props.onTransactionSubmit)}
-        >
-          <label>Select Wallet</label>
-          <p>
-            <TransactionField />
-          </p>
-          <label>Bitcoin</label>
-          <p>
-            <Field
-              name="bitcoin"
-              component="input"
-              type="text"
-              placeholder="Total Bitcoin"
-            />
-          </p>
-          <label>Ethereum</label>
-          <p>
-            <Field
-              name="ethereum"
-              component="input"
-              type="text"
-              placeholder="Total Ethereum"
-            />
-          </p>
-          <label>Litecoin</label>
-          <p>
-            <Field
-              name="litecoin"
-              component="input"
-              type="text"
-              placeholder="Total Litecoin"
-            />
-          </p>
-          <p>
-            <button type="submit" className="wallet-save">
-              Add
-            </button>
-          </p>
-        </form>
+        <div className="text-center">
+          <h2 className="text-center">Update wallet details</h2>
+          <p className="text-center">Note: Please enter the updated total values. Do not enter the recent amount bought or sold.</p>
+          <form className="addwalletform"
+            onSubmit={this.props.handleSubmit(this.props.onTransactionSubmit)}
+          >
+            <label>Select Wallet</label>
+            <p>
+              <TransactionField />
+            </p>
+            <label>Bitcoin</label>
+            <p>
+              <Field
+                name="bitcoin"
+                component="input"
+                type="text"
+                placeholder="Total Bitcoin"
+                className="wallet-input"
+              />
+            </p>
+            <label>Ethereum</label>
+            <p>
+              <Field
+                name="ethereum"
+                component="input"
+                type="text"
+                placeholder="Total Ethereum"
+                className="wallet-input"
+              />
+            </p>
+            <label>Litecoin</label>
+            <p>
+              <Field
+                name="litecoin"
+                component="input"
+                type="text"
+                placeholder="Total Litecoin"
+                className="wallet-input"
+              />
+            </p>
+            <p>
+              <button type="submit" className="wallet-save">
+                Add
+              </button>
+            </p>
+          </form>
+        </div>
       </div>
     );
   }
@@ -124,11 +83,6 @@ function validate(values) {
   }
 
   return errors;
-}
-
-function fireAway(values, { fetchWallets }, done) {
-  return this.wallet.findByIdAndUpdate(this.wallet._id, { bitcoin: values.bitcoin });
-  done();
 }
 
 function mapStateToProps({ wallets }) {

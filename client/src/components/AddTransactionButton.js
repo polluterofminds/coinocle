@@ -35,14 +35,13 @@ class AddTransactionButton extends Component {
               <div className="modal-content">
                 <div className="modal-header">
                   <p type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></p>
-                  <h3 className="modal-title text-center" id="myModalLabel">New Transaction</h3>
+                  
                 </div>
                 <div className="modal-body">
                 <NewTransaction />
                 </div>
                 <div className="modal-footer">
                   <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
-                  <p><button type="submit" className="wallet-save">Save</button></p>
                 </div>
               </div>
             </div>
