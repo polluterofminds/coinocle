@@ -25,3 +25,10 @@ export const fetchWallets = () => async dispatch => {
 
   dispatch({ type: FETCH_WALLETS, payload: res.data });
 };
+
+export const updateWallet = (values, history) => async dispatch => {
+  const res = await axios.put("/api/wallets/:wallet_id", values);
+
+  history.push("/wallets");
+  dispatch({ type: FETCH_USER, payload: res.data });
+};

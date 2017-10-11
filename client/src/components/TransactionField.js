@@ -13,10 +13,11 @@ class TransactionField extends Component {
 
   renderWallets() {
 
+    const { meta } = this.props;
+
     return this.props.wallets.map(wallet => {
       return (
-        <option value={wallet._id}>{wallet.title}</option>
-
+        <option key={wallet._id} name={wallet._id} value={wallet._id}>{wallet.title}</option>
       );
     });
   }

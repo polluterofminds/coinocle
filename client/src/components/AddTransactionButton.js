@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import NewTransaction from "./NewTransaction";
+import * as actions from "../actions";
 import { Link } from "react-router-dom";
 import logo from "../assets/logoWhite.png";
 import "./App.css";
@@ -70,4 +71,4 @@ function mapStateToProps({ auth, form }) {
   return { auth, form };
 }
 
-export default connect(mapStateToProps)(AddTransactionButton);
+export default connect(mapStateToProps, actions)(AddTransactionButton);

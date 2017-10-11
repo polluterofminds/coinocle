@@ -10,6 +10,46 @@ module.exports = app => {
     res.send(wallets);
   });
 
+  app.get("/api/wallets/:wallet_id", async (req, res) => {
+    Wallet.findById(req.params.wallet_id, function(err, wallet) {
+      if (err) res.send(err);
+      res.json(wallet);
+    });
+  });
+
+  app.put("/api/wallets/:wallet_id", async (req, res) => {
+    Wallet.findById(req.params.wallet_id, (err, wallet) => {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        wallet.title = req.body.title || wallet.title;
+        wallet.bitcoin = req.body.bitcoin || wallet.bitcoin;
+        wallet.ethereum = req.body.ethereum || wallet.ethereum;
+        wallet.litecoin = req.body.litecoin || wallet.litecoin;
+
+        wallet.save((err, wallet) => {
+          if (err) {
+            res.status(500).send(err);
+          }
+          res.status(200).send(wallet);
+        });
+      }
+    });
+  });
+
+  app.delete("/api/wallets/:wallet_id", async (req, res) => {
+    Wallet.remove(
+      {
+        _id: req.params.wallet_id
+      },
+      function(err, wallet) {
+        if (err) res.send(err);
+
+        res.json({ message: "Deleted!" });
+      }
+    );
+  });
+
   app.post("/api/wallets", requireLogin, requireCredits, async (req, res) => {
     const { title, bitcoin, ethereum, litecoin } = req.body;
 
