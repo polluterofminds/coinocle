@@ -1,6 +1,7 @@
 // import _ from "lodash";
 import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
+import { Link } from "react-router-dom";
 import WalletField from "./WalletField";
 import "./App.css";
 
@@ -13,8 +14,8 @@ class WalletForm extends Component {
           type="text"
           name="title"
           className="wallet-input"
-          placeholder="Wallet name"
-          component={WalletField} />
+          component={WalletField}
+          placeholder="Wallet name" />
           <Field
             label="Total Bitcoin"
             type="number"
@@ -50,6 +51,7 @@ class WalletForm extends Component {
             >
               {this.renderFields()}
               <p>
+              <Link to={"/wallets"}><button className="btn btn-cancel">Cancel</button></Link>
                 <button className="wallet-save" type="submit">
                   Next
                 </button>

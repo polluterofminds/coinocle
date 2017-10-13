@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchWallets } from "../actions";
 import axios from "axios";
-import { Link } from "react-router-dom";
+
+import { HashLink as Link } from 'react-router-hash-link';
 
 class WalletsList extends Component {
 
@@ -42,6 +43,7 @@ class WalletsList extends Component {
       var litecoinValue = wallet.litecoin * litecoin;
 
       var totalValue = bitcoinValue + ethereumValue + litecoinValue;
+      var link = "/dashboard#"+ wallet._id;
       console.log(wallet._id);
 
 
@@ -49,13 +51,13 @@ class WalletsList extends Component {
       return (
         <tr key={wallet.title}>
           <td>
-            {wallet.title}
+            {wallet.title}<Link to={link}><span className="glyphicon glyphicon-stats"></span></Link>
           </td>
           <td>
             ${totalValue.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,')}
           </td>
           <td>
-            <Link to={wallet._id}>Edit</Link>
+            <Link to={wallet._id}><span className="glyphicon glyphicon-trash"></span></Link>
           </td>
         </tr>
 
@@ -70,15 +72,15 @@ class WalletsList extends Component {
         <table className="table table-bordered table-striped table-hover">
           <thead>
           <tr>
-            <th className="text-center">Wallet Name</th>
-            <th className="text-center">Current Value</th>
+            <th className="text-center"><strong>Wallet Name</strong></th>
+            <th className="text-center"><strong>Current Value</strong></th>
             <th><span className="emptyTD" /></th>
           </tr>
           </thead>
           <tbody>
           <tr>
             <td>
-              <Link to={"/wallets/new"} className="addAWallet" href="#">
+              <Link to={"/wallets/new"} className="addAWallet">
                 Add a wallet
               </Link>
             </td>
@@ -105,26 +107,8 @@ class WalletsList extends Component {
   }
 }
 
-function mapStateToProps({ wallets }) {
+function mapStateToProps({ wallets }, { auth }) {
   return { wallets };
 }
 
 export default connect(mapStateToProps, { fetchWallets })(WalletsList);
-
-// <div key={wallet._id}>
-//   <div>
-//     <h4>{wallet.title}</h4>
-//     <p>
-//       Bitcoin: {wallet.bitcoin}
-//     </p>
-//     <p>
-//       Ethereum: {wallet.ethereum}
-//     </p>
-//     <p>
-//       Litecoin: {wallet.litecoin}
-//     </p>
-//     <p>
-//       Date Added: {new Date(wallet.dateAdded).toLocaleDateString()}
-//     </p>
-//   </div>
-// </div>

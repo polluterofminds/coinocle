@@ -302,9 +302,14 @@
 .total-wallet-value {
   margin-top: 35px;
   margin-bottom: 35px;
+  color: #000;
 }
 
-.empty-state, .total-wallet-value {
+.empty-state {
+  color: #ACACAB;
+}
+
+.total-wallet-value-empty {
   color: #ACACAB;
 }
 
@@ -426,6 +431,10 @@ table {
   background-color: #e7e7e7;
 }
 
+.glyphicon-trash {
+  color: red;
+}
+
 
 /*Add Transaction Button Design*/
 
@@ -541,8 +550,12 @@ a.plus-sign, a.plus-sign:hover {
   background: #fff;
 }
 
-.table-striped tbody tr:nth-child(even):hover {
-  background: #fff;
+.table-striped tbody tr:hover {
+  background: #f7f8f9;
+}
+
+.table tbody tr:hover {
+  background: #f7f8f9;
 }
 
 .table thead tr {
@@ -559,6 +572,12 @@ a.plus-sign, a.plus-sign:hover {
 }
 .addwalletform input:focus 		{ outline:none; }
 
+.glyphicon-stats {
+  float: right;
+  padding-right: 25px;
+  color: #D5982E;
+}
+
 /* LABEL ======================================= */
 .addwalletform label 				 {
   color:#000;
@@ -571,6 +590,11 @@ a.plus-sign, a.plus-sign:hover {
   transition:0.2s ease all;
   -moz-transition:0.2s ease all;
   -webkit-transition:0.2s ease all;
+}
+
+.addwalletform {
+  width: 50%;
+  margin: auto;
 }
 
 /* active state */
@@ -655,6 +679,15 @@ Charts*/
 .chart {
   max-width: 85%;
   margin: auto;
+}
+
+.top-charts {
+  margin-bottom: 50px;
+}
+
+.charts-table {
+  margin-top: 80px;
+  margin-bottom: 80px;
 }
 
 /*Media Queries*/

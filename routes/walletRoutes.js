@@ -17,7 +17,7 @@ module.exports = app => {
     });
   });
 
-  app.put("/api/wallets/:wallet_id", async (req, res) => {
+  app.put("/api/wallets/:wallet_id", requireLogin, requireCredits, async (req, res) => {
     Wallet.findById(req.params.wallet_id, (err, wallet) => {
       if (err) {
         res.status(500).send(err);
@@ -26,6 +26,8 @@ module.exports = app => {
         wallet.bitcoin = req.body.bitcoin || wallet.bitcoin;
         wallet.ethereum = req.body.ethereum || wallet.ethereum;
         wallet.litecoin = req.body.litecoin || wallet.litecoin;
+        wallet.dateUpdated = Date.now();
+        wallet._user = req.user.id;
 
         wallet.save((err, wallet) => {
           if (err) {

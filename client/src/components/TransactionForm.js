@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
 import TransactionField from "./TransactionField";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchWallets } from "../actions";
 import axios from "axios";
@@ -11,7 +12,7 @@ class TransactionForm extends Component {
   render() {
 
     return (
-      <div>
+      <div className="addWallet">
         <div className="text-center">
           <h2 className="text-center">Update wallet details</h2>
           <p className="text-center">Note: Please enter the updated total values. Do not enter the recent amount bought or sold.</p>
@@ -53,8 +54,9 @@ class TransactionForm extends Component {
               />
             </p>
             <p>
+              <Link to={"/wallets"}><button className="btn btn-cancel">Cancel</button></Link>
               <button type="submit" className="wallet-save">
-                Add
+                Next
               </button>
             </p>
           </form>

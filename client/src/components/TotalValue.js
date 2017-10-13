@@ -71,11 +71,18 @@ class TotalValue extends Component {
     var litValue = totalLit * litecoin;
 
     var portfolioValue = bitValue + ethValue + litValue;
+    var portfolioColor;
+
+    if(portfolioValue >0) {
+      portfolioColor = "total-wallet-value";
+    } else {
+      portfolioColor = "total-wallet-value-empty";
+    }
 
 
 
     return (
-      <h1 className="total-wallet-value">${portfolioValue.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,')}</h1>
+      <h1 className={portfolioColor}>${portfolioValue.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,')}</h1>
     );
   }
 }

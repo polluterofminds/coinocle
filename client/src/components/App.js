@@ -10,7 +10,8 @@ import Wallets from './Wallets';
 import Billing from './Billing';
 import NewWallet from './NewWallet';
 import Dashboard from "./Dashboard";
-const NewTransaction = () => <h2>NewTransaction</h2>;
+import NewTransaction from "./NewTransaction";
+const WalletLink = () => <h2>Sup</h2>
 // const Settings = () => <h2>Settings</h2>;
 // const Wallets = () => <h2>Wallets</h2>;
 // const Transactions = () => <h2>Transactions</h2>;

@@ -42,8 +42,6 @@ class Header extends Component {
             <li>
               <a href="/api/logout">Sign Out</a>
             </li>
-
-            <li><a>Credits: {this.props.auth.credits}</a></li>
           </ul>
         );
       } else {

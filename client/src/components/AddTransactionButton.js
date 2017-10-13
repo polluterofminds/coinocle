@@ -24,27 +24,9 @@ class AddTransactionButton extends Component {
         return (
           <div>
           <div className="addTransactionButton">
-            <a type="button" className="text-center plus-sign" data-toggle="modal" data-target="#myModal">
+            <Link to={"/transactions/new"} type="button" className="text-center plus-sign">
               +
-            </a>
-          </div>
-
-
-          <div className="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div className="modal-dialog" role="document">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <p type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></p>
-                  
-                </div>
-                <div className="modal-body">
-                <NewTransaction />
-                </div>
-                <div className="modal-footer">
-                  <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-            </div>
+            </Link>
           </div>
           </div>
         );
