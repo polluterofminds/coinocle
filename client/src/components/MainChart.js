@@ -60,7 +60,7 @@ class TestChart extends Component {
       };
 
       return (
-        <div className="wallet-table charts-table">
+        <div className="wallet-table charts-table col-md-6">
           <h3 id={wallet._id} className="text-center">{wallet.title}</h3>
           <table className="table table-bordered table-striped table-hover">
             <thead>
@@ -197,7 +197,9 @@ class TestChart extends Component {
             />
           </div>
         </div>
-        <div>{this.renderWallets()}</div>
+        <div className="row">
+        {this.renderWallets()}
+        </div>
       </div>
     );
   }

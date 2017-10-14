@@ -542,6 +542,20 @@ a.plus-sign, a.plus-sign:hover {
   margin-top: 25px;
 }
 
+.wallet-delete {
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.2s;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  border: none;
+  background-color: red;
+  color: #fff;
+  width: 130px;
+  height: 35px;
+  font-size: 18px;
+  font-weight: 100;
+  margin-top: 25px;
+}
+
 .table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
   border: none;
 }
@@ -686,8 +700,8 @@ Charts*/
 }
 
 .charts-table {
-  margin-top: 80px;
-  margin-bottom: 80px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 /*Media Queries*/

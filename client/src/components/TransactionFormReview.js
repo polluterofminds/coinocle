@@ -8,10 +8,7 @@ const TransactionFormReview = ({ onCancel, formValues, updateWallet, history }) 
     <div className="addWallet">
       <h3 className="text-center">Please confirm transaction</h3>
       <div className="text-center review">
-        <div>
-          <label>Wallet Name</label>
-          <div >{formValues.wallet}</div>
-        </div>
+        
         <div>
           <label>Bitcoin Amount</label>
           <div>{formValues.bitcoin}</div>

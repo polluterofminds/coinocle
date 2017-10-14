@@ -17,13 +17,13 @@ class TransactionField extends Component {
 
     return this.props.wallets.map(wallet => {
       return (
-        <option key={wallet._id} name={wallet._id} value={wallet._id}>{wallet.title}</option>
+        <option key={wallet.title} name={wallet.title} value={wallet._id}>{wallet.title}</option>
       );
+
     });
   }
 
   render() {
-
     return (
       <Field name="wallet" component="select">
         <option></option>
