@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchWallets } from "../actions";
-import { reduxForm, Field } from "redux-form";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import { Field } from "redux-form";
 
 class TransactionField extends Component {
 
@@ -13,7 +11,7 @@ class TransactionField extends Component {
 
   renderWallets() {
 
-    const { meta } = this.props;
+
 
     return this.props.wallets.map(wallet => {
       return (

@@ -3,10 +3,6 @@ import { connect } from "react-redux";
 import { fetchWallets } from "../actions";
 import axios from "axios";
 import { Doughnut } from "react-chartjs-2";
-import { Bar } from "react-chartjs-2";
-
-import { HashLink as Link } from 'react-router-hash-link';
-
 class TestChart extends Component {
 
   constructor() {
@@ -17,6 +13,7 @@ class TestChart extends Component {
       ethprice: ""
     };
   }
+
   componentWillMount() {
     axios
       .get(
@@ -44,20 +41,6 @@ class TestChart extends Component {
       var bitcoinValue = wallet.bitcoin * bitcoin;
       var ethereumValue = wallet.ethereum * ethereum;
       var litecoinValue = wallet.litecoin * litecoin;
-
-      var totalValue = bitcoinValue + ethereumValue + litecoinValue;
-      console.log(wallet._id);
-
-      const walletData = {
-        labels: ["Bitcoin", "Ethereum", "Litecoin"],
-        datasets: [
-          {
-            data: [wallet.bitcoin, wallet.ethereum, wallet.litecoin],
-            backgroundColor: ["#F2A900", "#3C3C3D", "#88CBF5"],
-            hoverBackgroundColor: ["#00cc66", "#00cc66", "#00cc66"]
-          }
-        ]
-      };
 
       return (
         <div className="wallet-table charts-table col-md-6">
@@ -150,7 +133,6 @@ class TestChart extends Component {
     var ethValue = totalEth * ethereum;
     var litValue = totalLit * litecoin;
 
-    var portfolioValue = bitValue + ethValue + litValue;
 
     const data = {
       labels: ["Bitcoin", "Ethereum", "Litecoin"],
@@ -163,38 +145,12 @@ class TestChart extends Component {
       ]
     };
 
-    const data2 = {
-      labels: ["Bitcoin", "Ethereum", "Litecoin"],
-      datasets: [
-        {
-          label: "Current Price",
-          backgroundColor: ["#F2A900", "#3C3C3D", "#88CBF5"],
-          borderColor: "#000",
-          borderWidth: 1,
-          hoverBackgroundColor: "#00cc66",
-          hoverBorderColor: "#000",
-          data: [bitcoin, ethereum, litecoin]
-        }
-      ]
-    };
-
     return (
       <div>
         <div className="chart">
           <div className="text-center top-charts">
             <h1 className="text-center">Total Portfolio Value</h1>
             <Doughnut data={data} />
-          </div>
-          <div className="text-center top-charts">
-            <h1 className="text-center">Currency Watch</h1>
-            <Bar
-              data={data2}
-              width={100}
-              height={50}
-              options={{
-                maintainAspectRatio: true
-              }}
-            />
           </div>
         </div>
         <div className="row">

@@ -4,8 +4,6 @@ import TransactionField from "./TransactionField";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchWallets } from "../actions";
-import axios from "axios";
-import * as actions from "../actions";
 
 class TransactionForm extends Component {
 
@@ -14,8 +12,8 @@ class TransactionForm extends Component {
     return (
       <div className="addWallet">
         <div className="text-center">
-          <h2 className="text-center">Update wallet details</h2>
-          <p className="text-center">Note: Please enter the updated total values. Do not enter the recent amount bought or sold.</p>
+          <h2 className="text-center">Add Transactions</h2>
+          <p className="text-center">Enter total coins purchased or sold. Use a negative number for sales.</p>
           <form className="addwalletform"
             onSubmit={this.props.handleSubmit(this.props.onTransactionSubmit)}
           >

@@ -23,9 +23,9 @@ module.exports = app => {
         res.status(500).send(err);
       } else {
         wallet.title = req.body.title || wallet.title;
-        wallet.bitcoin = req.body.bitcoin || wallet.bitcoin;
-        wallet.ethereum = req.body.ethereum || wallet.ethereum;
-        wallet.litecoin = req.body.litecoin || wallet.litecoin;
+        wallet.bitcoin = parseFloat(wallet.bitcoin) + parseFloat(req.body.bitcoin) || wallet.bitcoin;
+        wallet.ethereum = parseFloat(wallet.ethereum) + parseFloat(req.body.ethereum) || wallet.ethereum;
+        wallet.litecoin = parseFloat(wallet.litecoin) + parseFloat(req.body.litecoin) || wallet.litecoin;
         wallet.dateUpdated = Date.now();
         wallet._user = req.user.id;
 

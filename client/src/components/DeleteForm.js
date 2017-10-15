@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import { reduxForm, Field } from "redux-form";
+import { reduxForm } from "redux-form";
 import TransactionField from "./TransactionField";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchWallets } from "../actions";
-import axios from "axios";
-import * as actions from "../actions";
 
 class DeleteForm extends Component {
 

@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchWallets } from "../actions";
 import axios from "axios";
-import * as actions from "../actions";
-import { withRouter } from "react-router-dom";
 import { HashLink as Link } from 'react-router-hash-link';
 
 class WalletsList extends Component {
@@ -45,7 +43,6 @@ class WalletsList extends Component {
 
       var totalValue = bitcoinValue + ethereumValue + litecoinValue;
       var link = "/dashboard#"+ wallet._id;
-      console.log(wallet._id);
 
       return (
         <tr key={wallet.title}>

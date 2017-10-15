@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchWallets } from "../actions";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 class TotalValue extends Component {
 
