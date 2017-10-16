@@ -1,8 +1,6 @@
-//NewWallet shows WalletForm
-
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-// import { Link } from "react-router-dom";
+import { reduxForm } from "redux-form";
 import WalletForm from "./WalletForm";
 import WalletReview from "./WalletFormReview";
 import './App.css';
@@ -54,4 +52,9 @@ class NewWallet extends Component {
 function mapStateToProps({ auth }) {
   return { auth };
 }
+
+NewWallet = reduxForm({
+  form: "walletForm"
+})(NewWallet);
+
 export default connect(mapStateToProps)(NewWallet);

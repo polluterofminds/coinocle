@@ -30,12 +30,12 @@ export const updateWallet = (values, history) => async dispatch => {
   const res = await axios.put("/api/wallets/" + values.wallet, values);
 
   history.push("/wallets");
-  dispatch({ type: FETCH_USER, payload: res.data });
+  // dispatch({ type: FETCH_USER, payload: res.data });
 };
 
 export const deleteWallet = (values, history) => async dispatch => {
   const res = await axios.delete("/api/wallets/" + values.wallet, values);
 
   history.push("/wallets");
-  dispatch({ type: FETCH_USER, payload: res.data });
+  // dispatch({ type: FETCH_USER, payload: res.data });
 };

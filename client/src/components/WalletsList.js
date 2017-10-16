@@ -45,9 +45,9 @@ class WalletsList extends Component {
       var link = "/dashboard#"+ wallet._id;
 
       return (
-        <tr key={wallet.title}>
+        <tr key={wallet._id}>
           <td>
-            {wallet.title}<Link to={link}><span className="glyphicon glyphicon-stats"></span></Link>
+          <Link className="wallet-link" to={link}>{wallet.title}<span className="glyphicon glyphicon-stats"></span></Link>
           </td>
           <td>
             ${totalValue.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,')}

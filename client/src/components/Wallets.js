@@ -59,19 +59,24 @@ class Wallets extends Component {
       default:
         return (
           <div>
+          <div className="marquee">
+            <p><span className="ticker-span">BTC: ${bitcoin}</span>  <span className="ticker-span">ETH: ${ethereum}</span>  <span className="ticker-span">LTC: ${litecoin}</span></p>
+          </div>
           <div className="container text-center">
+
+
             <div className="row currency">
               <div className="col-md-4 card-1">
               <h4>BTC</h4>
-                <p>${bitcoin}</p>
+                <h2>${bitcoin}</h2>
               </div>
               <div className="col-md-4 card-1">
               <h4>ETH</h4>
-              <p>${ethereum}</p>
+              <h2>${ethereum}</h2>
               </div>
               <div className="col-md-4 card-1">
               <h4>LTC</h4>
-              <p>${litecoin}</p>
+              <h2>${litecoin}</h2>
               </div>
             </div>
             <h2>Dashboard</h2>

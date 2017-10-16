@@ -17,7 +17,8 @@ const walletsSchema = new Schema({
   },
   _user: { type: Schema.Types.ObjectId, ref: "User"},
   dateAdded: Date,
-  dateUpdated: [Date]
+  dateUpdated: Date
+
 });
 
 mongoose.model("wallets", walletsSchema);

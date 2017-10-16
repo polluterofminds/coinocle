@@ -5,16 +5,28 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchWallets } from "../actions";
 
+const renderField = field => (
+  <div className="input-row">
+    <input {...field.input} type="text" />
+    {field.meta.touched &&
+    field.meta.error && (
+      <span className="errorMessage">{field.meta.error}</span>
+    )}
+  </div>
+);
+
 class TransactionForm extends Component {
-
   render() {
-
     return (
       <div className="addWallet">
         <div className="text-center">
           <h2 className="text-center">Add Transactions</h2>
-          <p className="text-center">Enter total coins purchased or sold. Use a negative number for sales.</p>
-          <form className="addwalletform"
+          <p className="text-center">
+            Enter total coins purchased or sold. Use a negative number for
+            sales.
+          </p>
+          <form
+            className="addwalletform"
             onSubmit={this.props.handleSubmit(this.props.onTransactionSubmit)}
           >
             <label>Select Wallet</label>
@@ -25,17 +37,17 @@ class TransactionForm extends Component {
             <p>
               <Field
                 name="bitcoin"
-                component="input"
+                component={renderField}
                 type="text"
-                placeholder="Total Bitcoin"
                 className="wallet-input"
+                placeholder="Total Bitcoin"
               />
             </p>
             <label>Ethereum</label>
             <p>
               <Field
                 name="ethereum"
-                component="input"
+                component={renderField}
                 type="text"
                 placeholder="Total Ethereum"
                 className="wallet-input"
@@ -45,14 +57,16 @@ class TransactionForm extends Component {
             <p>
               <Field
                 name="litecoin"
-                component="input"
+                component={renderField}
                 type="text"
                 placeholder="Total Litecoin"
                 className="wallet-input"
               />
             </p>
             <p>
-              <Link to={"/wallets"}><button className="btn btn-cancel">Cancel</button></Link>
+              <Link to={"/wallets"}>
+                <button className="btn btn-cancel">Cancel</button>
+              </Link>
               <button type="submit" className="wallet-save">
                 Next
               </button>

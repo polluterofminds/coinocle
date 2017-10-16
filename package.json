@@ -41,6 +41,7 @@
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.4",
     "path-parser": "^2.0.2",
+    "react-animated-number": "^0.4.3",
     "react-chartjs-2": "^2.6.2",
     "react-easy-chart": "^0.3.0",
     "react-router-hash-link": "^1.1.1",

@@ -23,9 +23,22 @@ module.exports = app => {
         res.status(500).send(err);
       } else {
         wallet.title = req.body.title || wallet.title;
-        wallet.bitcoin = parseFloat(wallet.bitcoin) + parseFloat(req.body.bitcoin) || wallet.bitcoin;
-        wallet.ethereum = parseFloat(wallet.ethereum) + parseFloat(req.body.ethereum) || wallet.ethereum;
-        wallet.litecoin = parseFloat(wallet.litecoin) + parseFloat(req.body.litecoin) || wallet.litecoin;
+        if(!req.body.bitcoin) {
+          wallet.bitcoin = wallet.bitcoin;
+        } else {
+          wallet.bitcoin = parseFloat(wallet.bitcoin) + parseFloat(req.body.bitcoin);
+        }
+        if(!req.body.ethereum) {
+          wallet.ethereum = wallet.ethereum;
+        } else {
+          wallet.ethereum = parseFloat(wallet.ethereum) + parseFloat(req.body.ethereum);
+        }
+        if(!req.body.litecoin) {
+          wallet.litecoin = wallet.litecoin;
+        } else {
+          wallet.litecoin = parseFloat(wallet.litecoin) + parseFloat(req.body.litecoin);
+        }
+
         wallet.dateUpdated = Date.now();
         wallet._user = req.user.id;
 
@@ -35,8 +48,10 @@ module.exports = app => {
           }
           res.status(200).send(wallet);
         });
+
       }
     });
+
   });
 
   app.delete("/api/wallets/:wallet_id", async (req, res) => {
