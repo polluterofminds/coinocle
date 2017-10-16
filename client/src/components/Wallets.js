@@ -63,22 +63,6 @@ class Wallets extends Component {
             <p><span className="ticker-span">BTC: ${bitcoin}</span>  <span className="ticker-span">ETH: ${ethereum}</span>  <span className="ticker-span">LTC: ${litecoin}</span></p>
           </div>
           <div className="container text-center">
-
-
-            <div className="row currency">
-              <div className="col-md-4 card-1">
-              <h4>BTC</h4>
-                <h2>${bitcoin}</h2>
-              </div>
-              <div className="col-md-4 card-1">
-              <h4>ETH</h4>
-              <h2>${ethereum}</h2>
-              </div>
-              <div className="col-md-4 card-1">
-              <h4>LTC</h4>
-              <h2>${litecoin}</h2>
-              </div>
-            </div>
             <h2>Dashboard</h2>
             <h4>Total Current Value</h4>
             <div>
@@ -110,3 +94,19 @@ function mapStateToProps({ auth, form }) {
   return { auth, form };
 }
 export default connect(mapStateToProps)(Wallets);
+
+
+// <div className="row currency">
+//   <div className="col-md-4 card-1">
+//   <h4>BTC</h4>
+//     <h2>${bitcoin}</h2>
+//   </div>
+//   <div className="col-md-4 card-1">
+//   <h4>ETH</h4>
+//   <h2>${ethereum}</h2>
+//   </div>
+//   <div className="col-md-4 card-1">
+//   <h4>LTC</h4>
+//   <h2>${litecoin}</h2>
+//   </div>
+// </div>

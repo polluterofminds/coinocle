@@ -26,9 +26,10 @@ module.exports = app => {
     res.redirect('/wallets');
   });
 
-  app.get('/auth/coinbase', passport.authenticate('coinbase'));
+  app.get('/auth/coinbase',
+  passport.authenticate('coinbase'));
 
-  app.get('/auth/coinbase/callback',
+app.get('/auth/coinbase/callback',
   passport.authenticate('coinbase', { failureRedirect: '/' }),
   function(req, res) {
     // Successful authentication, redirect home.
