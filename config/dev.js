@@ -8,11 +8,11 @@ module.exports = {
   stripePublishableKey: "pk_test_JHUXRho7yjfn4sJDmC37uscX",
   stripeSecretKey: "sk_test_PzNcB6J1xpVQkhshSFVV50WP",
   twitterConsumerKey: "MYd5lSxqDKxGOcDUCmBelEnvA",
-  twitterConsumerSecret: "X460HTe2T2FFNmnISSFFC1d7tlXrI3my53bmGsFmVCXsBiZnsj",
-  githubClientID: "dabea3a38fa1330372e9",
-  githubClientSecret: "ac8b2775dce1e5c530e80577ad79d9ae2db477ee",
-  facebookClientID: "108518623233187",
-  facebookClientSecret: "4abe479410aadd5f077a2ad2b419a81d",
-  coinbaseClientID: "5e10c95430a34c3490a4fd68fd1f40c4fe1f05db351318bfd0df5ea7b06ae29f",
-  coinbaseClientSecret: "62060e56af300eb4d9bd59a27c61a7994dc4e7dc0f8782adc6b95848baf0ec43"
+  twitterConsumerSecret: "X460HTe2T2FFNmnISSFFC1d7tlXrI3my53bmGsFmVCXsBiZnsj"
+  // githubClientID: "dabea3a38fa1330372e9",
+  // githubClientSecret: "ac8b2775dce1e5c530e80577ad79d9ae2db477ee",
+  // facebookClientID: "108518623233187",
+  // facebookClientSecret: "4abe479410aadd5f077a2ad2b419a81d",
+  // coinbaseClientID: "5e10c95430a34c3490a4fd68fd1f40c4fe1f05db351318bfd0df5ea7b06ae29f",
+  // coinbaseClientSecret: "62060e56af300eb4d9bd59a27c61a7994dc4e7dc0f8782adc6b95848baf0ec43"
 };

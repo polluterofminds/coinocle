@@ -26,25 +26,25 @@ module.exports = app => {
     res.redirect('/wallets');
   });
 
-  app.get('/auth/coinbase',
-  passport.authenticate('coinbase'));
-
-app.get('/auth/coinbase/callback',
-  passport.authenticate('coinbase', { failureRedirect: '/' }),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('/wallets');
-  });
-
-  app.get('/auth/facebook',
-  passport.authenticate('facebook'));
-
-  app.get('/auth/facebook/callback',
-    passport.authenticate('facebook', { failureRedirect: '/' }),
-    function(req, res) {
-      // Successful authentication, redirect home.
-      res.redirect('/wallets');
-    });
+//   app.get('/auth/coinbase',
+//   passport.authenticate('coinbase'));
+//
+// app.get('/auth/coinbase/callback',
+//   passport.authenticate('coinbase', { failureRedirect: '/' }),
+//   function(req, res) {
+//     // Successful authentication, redirect home.
+//     res.redirect('/wallets');
+//   });
+//
+//   app.get('/auth/facebook',
+//   passport.authenticate('facebook'));
+//
+//   app.get('/auth/facebook/callback',
+//     passport.authenticate('facebook', { failureRedirect: '/' }),
+//     function(req, res) {
+//       // Successful authentication, redirect home.
+//       res.redirect('/wallets');
+//     });
 
   app.get("/api/logout", (req, res) => {
     req.logout();

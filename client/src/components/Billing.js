@@ -18,7 +18,7 @@ class Billing extends Component {
               <h2>Log in or sign up.</h2>
             </div>
             <div className="login-box">
-        			<a href="/auth/facebook" className="social-button" id="facebook-connect"> <span>Connect with Facebook</span></a>
+
         			<a href="/auth/google" className="social-button" id="google-connect"> <span>Connect with Google</span></a>
         			<a href="/auth/twitter" className="social-button" id="twitter-connect"> <span>Connect with Twitter</span></a>
     		    </div>
@@ -27,7 +27,7 @@ class Billing extends Component {
       default:
       if(this.props.auth.credits > 0){
         return (
-          <div>
+          <div className="main-content">
           <div className="billingBackground">
             <h1 className="text-center billing-header">Billing</h1>
             <h2 className="plan-name text-center">Your Plan: {planName}</h2>
@@ -60,7 +60,7 @@ class Billing extends Component {
       }
       else {
         return (
-          <div>
+          <div className="main-content">
           <div className="billingBackground">
             <h1 className="text-center billing-header">Billing</h1>
             <h2 className="plan-name text-center">Your Plan: {planName}</h2>
@@ -69,14 +69,20 @@ class Billing extends Component {
               <Payments />
             </p>
           </div>
-          <div className="row billing-additional">
-            <div className="col-md-6 billing-cards">
-              <h2 className="text-center">Billing History</h2>
-              <p />
-            </div>
-            <div className="col-md-6 billing-cards">
-              <h2 className="text-center">Switch to a Yearly Plan</h2>
-              <p />
+          <div className="billing-additional">
+            <div className="billing-cards text-center">
+              <h2 className="text-center">Billing Options</h2>
+              <hr />
+              <div className="billing-options">
+                <p>Refer Coinocle to a friend and get three-months free.</p>
+                <p className="billing-small">If you refer someone to Coinocle and they email us at
+                 <a href="mailto:coinoclereferrals@coinocle.com"> coinoclereferrals@coinocle.com</a>, if they sign up, and if they reference your
+                email address, we will credit your account for three months.</p>
+              </div>
+              <hr />
+              <div className="billing-options">
+                <p className="billing-cancel"><a href="mailto:cancel@coinocle.com">Cancel Account</a></p>
+              </div>
             </div>
           </div>
           <AddTransactionButton />

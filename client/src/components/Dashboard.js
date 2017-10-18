@@ -26,7 +26,7 @@ class Dashboard extends Component {
         );
       default:
         return (
-          <div>
+          <div className="main-content">
             <div className="chart">
               <DoughnutExample />
             </div>
