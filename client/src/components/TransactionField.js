@@ -23,7 +23,7 @@ class TransactionField extends Component {
 
   render() {
     return (
-      <Field name="wallet" component="select">
+      <Field name="wallet" component="select" className="wallet-select">
         <option></option>
         {this.renderWallets()}
       </Field>

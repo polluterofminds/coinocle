@@ -22,7 +22,7 @@ const TransactionFormReview = ({ onCancel, formValues, updateWallet, history }) 
           <div>{formValues.litecoin}</div>
         </div>
       </div>
-      <button className="btn btn-cancel" onClick={onCancel}>Cancel</button>
+      <button className="cancel" onClick={onCancel}>Cancel</button>
       <button onClick={() => updateWallet(formValues, history)} className="wallet-save">
         Save
       </button>

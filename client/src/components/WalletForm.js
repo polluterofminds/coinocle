@@ -51,7 +51,7 @@ class WalletForm extends Component {
             >
               {this.renderFields()}
               <p>
-              <Link to={"/wallets"}><button className="btn btn-cancel">Cancel</button></Link>
+              <Link to={"/wallets"}><button className="cancel">Cancel</button></Link>
                 <button className="wallet-save" type="submit">
                   Next
                 </button>

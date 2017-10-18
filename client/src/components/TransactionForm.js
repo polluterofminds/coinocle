@@ -65,7 +65,7 @@ class TransactionForm extends Component {
             </p>
             <p>
               <Link to={"/wallets"}>
-                <button className="btn btn-cancel">Cancel</button>
+                <button className="cancel">Cancel</button>
               </Link>
               <button type="submit" className="wallet-save">
                 Next
