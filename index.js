@@ -12,6 +12,7 @@ require("./models/User");
 require("./models/Wallets");
 require("./services/passport");
 
+
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI, { useMongoClient: true });
 

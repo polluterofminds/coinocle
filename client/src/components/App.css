@@ -465,7 +465,7 @@ table {
     animation: marquee 10s linear infinite;
     color: green;
     font-size: 18px;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 .ticker-span {

@@ -5,29 +5,37 @@ import axios from "axios";
 
 class TotalValue extends Component {
 
-  constructor () {
-      super();
-      this.state = {
-          btcprice: '',
-          ltcprice: '',
-          ethprice: ''
-      };
+  constructor() {
+    super();
+    this.state = {
+      btcprice: "",
+      ltcprice: "",
+      ethprice: ""
+    };
   }
-  componentWillMount () {
-      axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC&tsyms=USD')
-          .then(res => {
-              this.setState({ btcprice: res.data.BTC.USD });
-              this.setState({ ethprice: res.data.ETH.USD });
-              this.setState({ ltcprice: res.data.LTC.USD });
-          })
 
-          .catch(error => {
-              console.log(error)
-          })
+
+  componentWillMount() {
+    this.getData = () => {
+    axios
+      .get(
+        "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC&tsyms=USD"
+      )
+      .then(res => {
+        this.setState({ btcprice: res.data.BTC.USD });
+        this.setState({ ethprice: res.data.ETH.USD });
+        this.setState({ ltcprice: res.data.LTC.USD });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
   }
 
   componentDidMount() {
-    this.props.fetchWallets();
+  this.getData();
+  this.refresh = setInterval(() => this.getData(), 90000);
+  this.props.fetchWallets();
   }
 
   render() {

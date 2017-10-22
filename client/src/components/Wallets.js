@@ -18,7 +18,9 @@ class Wallets extends Component {
     };
   }
 
+
   componentWillMount() {
+    this.getData = () => {
     axios
       .get(
         "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC&tsyms=USD"
@@ -32,6 +34,12 @@ class Wallets extends Component {
         console.log(error);
       });
   }
+}
+
+componentDidMount() {
+  this.getData();
+  this.refresh = setInterval(() => this.getData(), 90000);
+}
 
 
   renderContent() {
