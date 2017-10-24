@@ -14,7 +14,9 @@ class TestChart extends Component {
     };
   }
 
+
   componentWillMount() {
+    this.getData = () => {
     axios
       .get(
         "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC&tsyms=USD"
@@ -28,8 +30,11 @@ class TestChart extends Component {
         console.log(error);
       });
   }
+}
 
   componentDidMount() {
+    this.getData();
+    this.refresh = setInterval(() => this.getData(), 5000);
     this.props.fetchWallets();
   }
 

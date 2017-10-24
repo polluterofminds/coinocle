@@ -34,7 +34,7 @@ class TotalValue extends Component {
 
   componentDidMount() {
   this.getData();
-  this.refresh = setInterval(() => this.getData(), 90000);
+  this.refresh = setInterval(() => this.getData(), 5000);
   this.props.fetchWallets();
   }
 

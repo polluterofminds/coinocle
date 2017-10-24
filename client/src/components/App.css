@@ -857,6 +857,14 @@ Charts*/
     font-weight: 400;
     color: #3f3f3f;
   }
+  #bs-example-navbar-collapse-1 {
+    background: rgb(255, 255, 255);
+    width: 45%;
+    position: absolute;
+    z-index: 1;
+    margin-left: 45%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 4px 0px, rgba(0, 0, 0, 0.12) 0px 2px 8px 0px;
+  }
 }
 
 

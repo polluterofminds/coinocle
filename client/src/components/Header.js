@@ -33,11 +33,9 @@ class Header extends Component {
         if (this.props.auth.credits > 0) {
         return (
           <ul className="nav navbar-nav navbar-right">
+
             <li>
-              <a href="/billing">Billing</a>
-            </li>
-            <li>
-              <a href="/contact">Help</a>
+              <a href="mailto:support@coinocle.com">Help</a>
             </li>
             <li>
               <a href="/api/logout">Sign Out</a>
@@ -47,18 +45,14 @@ class Header extends Component {
       } else {
         return (
           <ul className="nav navbar-nav navbar-right">
+
             <li>
-              <a href="/billing">Billing</a>
-            </li>
-            <li>
-              <a href="/contact">Help</a>
+              <a href="mailto:support@coinocle.com">Help</a>
             </li>
             <li>
               <a href="/api/logout">Sign Out</a>
             </li>
-            <li>
-              <a href="/billing"><button className="payment-warning"><span className="glyphicon glyphicon-info-sign"></span>Payment Due</button></a>
-            </li>
+
 
           </ul>
         );
@@ -110,3 +104,11 @@ function mapStateToProps({ auth, form }) {
 }
 
 export default connect(mapStateToProps)(Header);
+
+
+// <li>
+//   <a href="/billing">Billing</a>
+// </li>
+// <li>
+//   <a href="/billing"><button className="payment-warning"><span className="glyphicon glyphicon-info-sign"></span>Payment Due</button></a>
+// </li>
