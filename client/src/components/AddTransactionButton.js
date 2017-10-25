@@ -17,8 +17,6 @@ class AddTransactionButton extends Component {
           </div>
         );
       default:
-
-        if (this.props.auth.credits > 0) {
         return (
           <div>
           <div className="addTransactionButton">
@@ -28,14 +26,11 @@ class AddTransactionButton extends Component {
           </div>
           </div>
         );
-      } else {
-        return (
-          <div>
-          </div>
-        );
+
+
       }
     }
-  }
+  
 
   render() {
     return (

@@ -5,7 +5,7 @@ const requireCredits = require("../middlewares/requireCredits");
 const Wallet = mongoose.model("wallets");
 
 module.exports = app => {
-  app.get("/api/wallets", requireLogin, requireCredits, async (req, res) => {
+  app.get("/api/wallets", requireLogin, async (req, res) => {
     const wallets = await Wallet.find({ _user: req.user.id });
     res.send(wallets);
   });
@@ -17,7 +17,7 @@ module.exports = app => {
     });
   });
 
-  app.put("/api/wallets/:wallet_id", requireLogin, requireCredits, async (req, res) => {
+  app.put("/api/wallets/:wallet_id", requireLogin, async (req, res) => {
     Wallet.findById(req.params.wallet_id, (err, wallet) => {
       if (err) {
         res.status(500).send(err);
@@ -67,7 +67,7 @@ module.exports = app => {
     );
   });
 
-  app.post("/api/wallets", requireLogin, requireCredits, async (req, res) => {
+  app.post("/api/wallets", requireLogin, async (req, res) => {
     const { title, bitcoin, ethereum, litecoin } = req.body;
 
     const wallet = new Wallet({
