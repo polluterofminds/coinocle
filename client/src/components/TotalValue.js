@@ -10,7 +10,8 @@ class TotalValue extends Component {
     this.state = {
       btcprice: "",
       ltcprice: "",
-      ethprice: ""
+      ethprice: "",
+      value: ""
     };
   }
 
@@ -39,6 +40,7 @@ class TotalValue extends Component {
   }
 
   render() {
+
     var portfolio = this.props.wallets;
 
     // Get an array of checkout values only
@@ -68,6 +70,7 @@ class TotalValue extends Component {
     var totalLit = litecoinAmount.reduce(function(prev, curr) {
         return prev + curr;
     }, 0);
+
 
     var bitcoin = this.state.btcprice;
     var ethereum = this.state.ethprice;

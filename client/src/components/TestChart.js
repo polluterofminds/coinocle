@@ -14,7 +14,11 @@ class Historical extends Component {
       threeDay: "",
       fourDay: "",
       fiveDay: "",
-      sixDay: ""
+      sixDay: "",
+      values: [{
+        x: "",
+        y: ""
+      },]
     };
   }
 
@@ -86,25 +90,35 @@ class Historical extends Component {
         .catch(error => {
           console.log(error);
         });
+        axios
+          .get("https://blockchain.info/charts/market-price?format=json")
+          .then(res => {
+            this.setState({ values: res.data.values });
+          })
+          .catch(error => {
+            console.log(error);
+          });
     };
+
+    console.log(this.state.values);
   }
 
   componentDidMount() {
     this.getData();
-    this.refresh = setInterval(() => this.getData(), 10000);
+    this.refresh = setInterval(() => this.getData(), 100000);
     this.props.fetchWallets();
   }
 
   render() {
     const data = {
       labels: [
-        "Today",
-        "One Day Ago",
-        "Two Days Ago",
-        "Three Days Ago",
-        "Four Days Ago",
+        "Six Days Ago",
         "Five Days Ago",
-        "Six Days Ago"
+        "Four Days Ago",
+        "Three Days Ago",
+        "Two Days Ago",
+        "One Day Ago",
+        "Today"
       ],
       datasets: [
         {
@@ -127,13 +141,13 @@ class Historical extends Component {
           pointRadius: 1,
           pointHitRadius: 10,
           data: [
-            this.state.todayPrice,
-            this.state.oneDay,
-            this.state.twoDay,
-            this.state.threeDay,
-            this.state.fourDay,
+            this.state.sixDay,
             this.state.fiveDay,
-            this.state.sixDay
+            this.state.fourDay,
+            this.state.threeDay,
+            this.state.twoDay,
+            this.state.oneDay,
+            this.state.todayPrice
           ]
         }
       ]

@@ -1,10 +1,30 @@
 import React from "react";
 import { connect } from "react-redux";
 import * as actions from "../actions";
+import axios from "axios";
 import { withRouter } from "react-router-dom";
 
+const WalletReviewAddress = ({ onCancel, formValues, addWallet, history }) => {
 
-const WalletReview = ({ onCancel, formValues, addWallet, history }) => {
+  var data;
+  var apiLink = "https://api.smartbit.com.au/v1/blockchain/address/";
+  var key = formValues.publicKey;
+  var satoshi;
+  axios
+    .get(
+      apiLink + key
+    )
+    .then(res => {
+      this.data = res.data.address.total.received_int;
+    })
+    .catch(error => {
+      console.log(error);
+    });
+
+console.log(this.data);
+
+var totalBit = (data / 100000000);
+// console.log(totalBit);
 
   return (
     <div className="addWallet">
@@ -15,7 +35,7 @@ const WalletReview = ({ onCancel, formValues, addWallet, history }) => {
         <label>Public Key</label>
         <div><strong>{formValues.publicKey}</strong></div>
         <label>Total Bitcoin</label>
-        <div><strong>{formValues.bitcoin}</strong></div>
+        <div><strong>{formValues.bitcoin = (this.data/100000000)}</strong></div>
       </div>
       <button className="cancel" onClick={onCancel}>
         Edit
@@ -32,4 +52,4 @@ function mapStateToProps(state) {
   return { formValues: state.form.walletForm.values };
 }
 
-export default connect(mapStateToProps, actions)(withRouter(WalletReview));
+export default connect(mapStateToProps, actions)(withRouter(WalletReviewAddress));

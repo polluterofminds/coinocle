@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 const requireLogin = require("../middlewares/requireLogin");
 const requireCredits = require("../middlewares/requireCredits");
-
 const Wallet = mongoose.model("wallets");
 
 module.exports = app => {
+
   app.get("/api/wallets", requireLogin, async (req, res) => {
     const wallets = await Wallet.find({ _user: req.user.id });
     res.send(wallets);
@@ -68,13 +68,12 @@ module.exports = app => {
   });
 
   app.post("/api/wallets", requireLogin, async (req, res) => {
-    const { title, bitcoin, ethereum, litecoin } = req.body;
+    const { title, publicKey, bitcoin } = req.body;
 
     const wallet = new Wallet({
       title,
+      publicKey,
       bitcoin,
-      ethereum,
-      litecoin,
       _user: req.user.id,
       dateAdded: Date.now()
     });

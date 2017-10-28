@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 import WalletField from "./WalletField";
 import "./App.css";
 
-class WalletForm extends Component {
+class WalletFormAddress extends Component {
+
+
   renderFields() {
     return (
       <div>
@@ -17,12 +19,19 @@ class WalletForm extends Component {
           component={WalletField}
           placeholder="Wallet name" />
           <Field
-            label="Total Bitcoin"
-            type="number"
-            name="bitcoin"
+            label="Public Address"
+            type="text"
+            name="publicKey"
             className="wallet-input"
-            placeholder="Total bitcoin"
+            placeholder="public key"
             component={WalletField} />
+            <div className="hide-this"><Field
+              label="Total Bitcoin"
+              type="text"
+              name="bitcoin"
+              className="hide-this"
+              placeholder="bitcoin"
+              component={WalletField} /></div>
 
       </div>
     );
@@ -31,7 +40,7 @@ class WalletForm extends Component {
     return (
       <div>
         <div className="addWallet">
-          <h1 className="text-center">Add a wallet & starting balance</h1>
+          <h1 className="text-center">Enter a wallet name and address</h1>
           <div className="text-center">
             <form className="addwalletform"
               onSubmit={this.props.handleSubmit(this.props.onWalletSubmit)}
@@ -63,8 +72,8 @@ function validate(values){
     errors.title = "You must provide a wallet name";
   }
 
-  if (values.bitcoin != null && isNaN(values.bitcoin)){
-    errors.bitcoin = "Please enter numbers only";
+  if (!values.publicKey){
+    errors.publicKey = "You must provide a public address";
   }
 
   return errors;
@@ -74,4 +83,4 @@ export default reduxForm({
   validate,
   form: "walletForm",
   destroyOnUnmount: false
-})(WalletForm);
+})(WalletFormAddress);

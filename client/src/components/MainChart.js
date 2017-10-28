@@ -74,24 +74,6 @@ class TestChart extends Component {
                     .replace(/(\d)(?=(\d{3})+\.)/g, "$1,")}
                 </td>
               </tr>
-              <tr>
-                <td>Ethereum</td>
-                <td>{wallet.ethereum}</td>
-                <td>
-                  ${ethereumValue
-                    .toFixed(2)
-                    .replace(/(\d)(?=(\d{3})+\.)/g, "$1,")}
-                </td>
-              </tr>
-              <tr>
-                <td>Litecoin</td>
-                <td>{wallet.litecoin}</td>
-                <td>
-                  ${litecoinValue
-                    .toFixed(2)
-                    .replace(/(\d)(?=(\d{3})+\.)/g, "$1,")}
-                </td>
-              </tr>
             </tbody>
           </table>
         </div>
@@ -107,43 +89,47 @@ class TestChart extends Component {
       return item.bitcoin;
     });
 
+    var walletName = portfolio.map(function(item) {
+      return item.title;
+    });
+
     // Sum the array's values from left to right
     var totalBit = bitcoinAmount.reduce(function(prev, curr) {
       return prev + curr;
     }, 0);
 
-    var ethereumAmount = portfolio.map(function(item) {
-      return item.ethereum;
-    });
+    // var ethereumAmount = portfolio.map(function(item) {
+    //   return item.ethereum;
+    // });
 
     // Sum the array's values from left to right
-    var totalEth = ethereumAmount.reduce(function(prev, curr) {
-      return prev + curr;
-    }, 0);
+    // var totalEth = ethereumAmount.reduce(function(prev, curr) {
+    //   return prev + curr;
+    // }, 0);
 
-    var litecoinAmount = portfolio.map(function(item) {
-      return item.litecoin;
-    });
+    // var litecoinAmount = portfolio.map(function(item) {
+    //   return item.litecoin;
+    // });
 
     // Sum the array's values from left to right
-    var totalLit = litecoinAmount.reduce(function(prev, curr) {
-      return prev + curr;
-    }, 0);
+    // var totalLit = litecoinAmount.reduce(function(prev, curr) {
+    //   return prev + curr;
+    // }, 0);
 
     var bitcoin = this.state.btcprice;
-    var ethereum = this.state.ethprice;
-    var litecoin = this.state.ltcprice;
+    // var ethereum = this.state.ethprice;
+    // var litecoin = this.state.ltcprice;
 
     var bitValue = totalBit * bitcoin;
-    var ethValue = totalEth * ethereum;
-    var litValue = totalLit * litecoin;
+    // var ethValue = totalEth * ethereum;
+    // var litValue = totalLit * litecoin;
 
 
     const data = {
-      labels: ["Bitcoin", "Ethereum", "Litecoin"],
+      labels: walletName,
       datasets: [
         {
-          data: [bitValue, ethValue, litValue],
+          data: bitcoinAmount,
           backgroundColor: ["#F2A900", "#3C3C3D", "#88CBF5"],
           hoverBackgroundColor: ["#00cc66", "#00cc66", "#00cc66"]
         }
