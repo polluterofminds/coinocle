@@ -25,13 +25,6 @@ class WalletFormAddress extends Component {
             className="wallet-input"
             placeholder="public key"
             component={WalletField} />
-            <div className="hide-this"><Field
-              label="Total Bitcoin"
-              type="text"
-              name="bitcoin"
-              className="hide-this"
-              placeholder="bitcoin"
-              component={WalletField} /></div>
 
       </div>
     );

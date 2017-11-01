@@ -5,17 +5,63 @@ import axios from "axios";
 import { HashLink as Link } from "react-router-hash-link";
 
 class WalletsList extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       btcprice: "",
       ltcprice: "",
       ethprice: "",
-      value: ""
+      wallets: []
     };
   }
 
+
   componentWillMount() {
+    this.props.fetchWallets();
+  }
+
+  componentWillReceiveProps(newProps) {
+    this.props.wallets.map(wallet => {
+        const apiLink ="https://api.smartbit.com.au/v1/blockchain/address/";
+        const key = wallet.publicKey;
+        const url = apiLink + key;
+        if(key) {
+        axios
+        .get(
+          url
+        )
+        .then(res => {
+          const newWallet = {
+              id: wallet._id,
+              title: wallet.title,
+              bitcoin: wallet.bitcoin,
+              key: wallet.publicKey,
+              coins: res.data.address.total.received_int,
+          }
+          this.setState({ wallets:
+            [...this.state.wallets, newWallet]
+           });
+        })
+        .catch(error => {
+          console.log(error);
+        });
+      } else {
+        const newWallet = {
+          id: wallet._id,
+          title: wallet.title,
+          bitcoin: wallet.bitcoin,
+          key: wallet.publicKey
+        }
+        this.setState({ wallets:
+          [...this.state.wallets, newWallet]
+         });
+      }
+      });
+
+  }
+
+  componentDidMount(){
+    this.props.fetchWallets();
     this.getData = () => {
       axios
         .get(
@@ -30,47 +76,64 @@ class WalletsList extends Component {
           console.log(error);
         });
     };
-  }
 
-  componentDidMount() {
     this.getData();
     this.refresh = setInterval(() => this.getData(), 10000);
-    this.props.fetchWallets();
+
   }
 
+
   renderWallets() {
-    return this.props.wallets.map(wallet => {
-      var bitcoin = this.state.btcprice;
-      // var ethereum = this.state.ethprice;
-      // var litecoin = this.state.ltcprice;
-      var bitcoinValue = wallet.bitcoin * bitcoin;
-      // var ethereumValue = wallet.ethereum * ethereum;
-      // var litecoinValue = wallet.litecoin * litecoin;
+    return this.state.wallets.map(wallet => {
+      const link = "/dashboard#" + wallet.id;
+        const totalBitcoin = wallet.coins/100000000; // should be const because it never changes
+        const totalAddressValue = totalBitcoin * this.state.btcprice;
+        const bitcoinValue = wallet.bitcoin * this.state.btcprice;
 
-      var link = "/dashboard#" + wallet._id;
-
-      return (
-        <tr key={wallet._id}>
-          <td>
-            <Link className="wallet-link" to={link}>
-              {wallet.title}
-              <span className="glyphicon glyphicon-stats" />
-            </Link>
-          </td>
-          <td>
-            ${bitcoinValue.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,")}
-          </td>
-          <td>
-            <Link to="/wallets/delete">
-              <span className="glyphicon glyphicon-trash" />
-            </Link>
-          </td>
-        </tr>
-      );
-    });
+          if(wallet.key){
+            return (
+              <tr key={wallet.id}>
+                <td>
+                  <Link className="wallet-link" to={link}>
+                    {wallet.title}
+                    <span className="glyphicon glyphicon-stats" />
+                  </Link>
+                </td>
+                <td>
+                  ${totalAddressValue.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,")}
+                </td>
+                <td>
+                  <Link to="/wallets/delete">
+                    <span className="glyphicon glyphicon-trash" />
+                  </Link>
+                </td>
+              </tr>
+          );
+          } else {
+            return (
+              <tr key={wallet.id}>
+                <td>
+                  <Link className="wallet-link" to={link}>
+                    {wallet.title}
+                    <span className="glyphicon glyphicon-stats" />
+                  </Link>
+                </td>
+                <td>
+                  ${bitcoinValue.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,")}
+                </td>
+                <td>
+                  <Link to="/wallets/delete">
+                    <span className="glyphicon glyphicon-trash" />
+                  </Link>
+                </td>
+              </tr>
+        );
+        }
+      })
   }
 
   render() {
+
     return (
       <div className="wallet-table">
         <table className="table table-bordered table-striped table-hover">
@@ -100,7 +163,6 @@ class WalletsList extends Component {
               </td>
             </tr>
             {this.renderWallets()}
-
             <tr>
               <td>
                 <span className="emptyTD" />

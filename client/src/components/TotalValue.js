@@ -43,7 +43,6 @@ class TotalValue extends Component {
 
     var portfolio = this.props.wallets;
 
-    // Get an array of checkout values only
     var bitcoinAmount = portfolio.map(function(item) {
         return item.bitcoin;
     });

@@ -39,6 +39,7 @@ module.exports = app => {
           wallet.litecoin = parseFloat(wallet.litecoin) + parseFloat(req.body.litecoin);
         }
 
+
         wallet.dateUpdated = Date.now();
         wallet._user = req.user.id;
 

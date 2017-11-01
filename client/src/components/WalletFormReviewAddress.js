@@ -9,7 +9,6 @@ const WalletReviewAddress = ({ onCancel, formValues, addWallet, history }) => {
   var data;
   var apiLink = "https://api.smartbit.com.au/v1/blockchain/address/";
   var key = formValues.publicKey;
-  var satoshi;
   axios
     .get(
       apiLink + key
@@ -35,7 +34,6 @@ var totalBit = (data / 100000000);
         <label>Public Key</label>
         <div><strong>{formValues.publicKey}</strong></div>
         <label>Total Bitcoin</label>
-        <div><strong>{formValues.bitcoin = (this.data/100000000)}</strong></div>
       </div>
       <button className="cancel" onClick={onCancel}>
         Edit
