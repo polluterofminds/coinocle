@@ -17,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.17.1",
     "bcrypt-nodejs": "latest",
     "body-parser": "^1.17.2",
     "chart.js": "^2.7.0",
@@ -24,7 +25,6 @@
     "connect-flash": "~0.1.1",
     "cookie-parser": "~1.0.0",
     "cookie-session": "^2.0.0-beta.2",
-    "cors": "^2.8.4",
     "express": "^4.15.3",
     "express-session": "~1.0.0",
     "localtunnel": "^1.8.3",
@@ -44,11 +44,17 @@
     "path-parser": "^2.0.2",
     "pusher": "^1.5.1",
     "pusher-js": "^4.2.1",
+    "react": "^16.2.0",
     "react-animated-number": "^0.4.3",
     "react-chartjs-2": "^2.6.2",
+    "react-dom": "^16.2.0",
     "react-easy-chart": "^0.3.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
     "react-router-hash-link": "^1.1.1",
+    "react-scripts": "^1.0.17",
     "react-scrollable-anchor": "^0.5.0",
+    "react-stripe-checkout": "^2.6.3",
     "sendgrid": "^5.1.2",
     "stripe": "^4.23.1"
   }

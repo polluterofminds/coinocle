@@ -16,11 +16,7 @@ require("./services/passport");
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI, { useMongoClient: true });
 
-var cors = require('cors');
-
 const app = express();
-
-app.use(cors());
 
 app.use(bodyParser.json());
 app.use(morgan("dev")); // log every request to the console

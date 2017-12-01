@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const walletsSchema = new Schema({
-  publicKey: String,
   title: String,
   bitcoin: {
     type: Number,

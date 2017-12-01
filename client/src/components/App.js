@@ -12,9 +12,6 @@ import NewWallet from './NewWallet';
 import Dashboard from "./Dashboard";
 import NewTransaction from "./NewTransaction";
 import Delete from "./Delete";
-import Historical from "./TestChart";
-import NewManualWallet from "./NewManualWallet";
-import NewAddressWallet from "./NewAddressWallet";
 // const Settings = () => <h2>Settings</h2>;
 // const Wallets = () => <h2>Wallets</h2>;
 // const Transactions = () => <h2>Transactions</h2>;
@@ -37,9 +34,6 @@ class App extends Component {
             <Route exact path="/wallets/delete" component={Delete} />
             <Route exact path="/transactions/new" component={NewTransaction} />
             <Route exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/history" component={Historical} />
-            <Route exact path="/wallets/new/manual" component={NewManualWallet} />
-            <Route exact path="/wallets/new/address" component={NewAddressWallet} />
           </div>
         </BrowserRouter>
       </div>

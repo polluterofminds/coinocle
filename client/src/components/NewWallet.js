@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 import { reduxForm } from "redux-form";
 import WalletForm from "./WalletForm";
 import WalletReview from "./WalletFormReview";
-import { Link } from "react-router-dom";
-import coinbase from "../assets/coinbase.png";
 import './App.css';
 
 class NewWallet extends Component {
@@ -23,36 +21,22 @@ class NewWallet extends Component {
               <h2>Log in or sign up.</h2>
             </div>
             <div className="login-box">
-
+        			
         			<a href="/auth/google" className="social-button" id="google-connect"> <span>Connect with Google</span></a>
         			<a href="/auth/twitter" className="social-button" id="twitter-connect"> <span>Connect with Twitter</span></a>
     		    </div>
           </div>
         );
       default:
-        return (
-          <div>
-            <h1 className="text-center">How would you like to add your wallet?</h1>
-            <div className="row wallet-options">
-              <div className="col-md-4">
-                <div className="card">
-                  <Link to={"/wallets/new/manual"}><h4 className="text-center"><span className="glyphicon glyphicon-pencil text-center"></span>Manual Entry</h4></Link>
-                </div>
-              </div>
-              <div className="col-md-4">
-                <div className="card">
-                  <Link to={"/wallets/new/address"}><h4 className="text-center"><span className="text-center glyphicon glyphicon-bitcoin"></span>Enter Public Address</h4></Link>
-                </div>
-              </div>
-              <div className="col-md-4">
-                <div className="card">
-                  <h4 className="text-center"><img className="text-center img-responsive coinbase-logo" src={coinbase} />Connect to Coinbase</h4>
-                  <p className="text-center">Coming soon</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
+        if (this.state.showReviewForm) {
+          return (
+            <WalletReview
+              onCancel={() => this.setState({ showReviewForm: false })}
+            />);
+        } else {
+        return  (
+          <WalletForm onWalletSubmit={() => this.setState({ showReviewForm: true })} />);
+      }
     }
   }
 
@@ -68,5 +52,9 @@ class NewWallet extends Component {
 function mapStateToProps({ auth }) {
   return { auth };
 }
+
+NewWallet = reduxForm({
+  form: "walletForm"
+})(NewWallet);
 
 export default connect(mapStateToProps)(NewWallet);

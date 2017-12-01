@@ -23,7 +23,20 @@ class WalletForm extends Component {
             className="wallet-input"
             placeholder="Total bitcoin"
             component={WalletField} />
-
+          <Field
+            label="Total Ethereum"
+            type="number"
+            name="ethereum"
+            className="wallet-input"
+            placeholder="total ethereum"
+            component={WalletField} />
+            <Field
+              label="Total Litecoin"
+              type="number"
+              name="litecoin"
+              className="wallet-input"
+              placeholder="Total litecoin"
+              component={WalletField} />
       </div>
     );
   }
@@ -65,6 +78,14 @@ function validate(values){
 
   if (values.bitcoin != null && isNaN(values.bitcoin)){
     errors.bitcoin = "Please enter numbers only";
+  }
+
+  if (values.ethereum != null && isNaN(values.ethereum)){
+    errors.ethereum = "Please enter numbers only";
+  }
+
+  if (values.litecoin != null && isNaN(values.litecoin)){
+    errors.litecoin = "Please enter numbers only";
   }
 
   return errors;

@@ -7,35 +7,14 @@ import "./App.css";
 
 class AddTransactionButton extends Component {
 
-  renderContent() {
-    switch (this.props.auth) {
-      case null:
-        return;
-      case false:
-        return (
-          <div>
-          </div>
-        );
-      default:
-        return (
-          <div>
-          <div className="addTransactionButton">
-            <Link to={"/transactions/new"} type="button" className="text-center plus-sign">
-              +
-            </Link>
-          </div>
-          </div>
-        );
-
-
-      }
-    }
-  
-
   render() {
     return (
       <div>
-        {this.renderContent()}
+      <div className="addTransactionButton">
+        <Link to={"/transactions/new"} type="button" className="text-center plus-sign">
+          +
+        </Link>
+      </div>
       </div>
     );
   }
