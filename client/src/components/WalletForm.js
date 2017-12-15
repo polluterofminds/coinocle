@@ -1,4 +1,3 @@
-// import _ from "lodash";
 import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
 import { Link } from "react-router-dom";
@@ -6,7 +5,9 @@ import WalletField from "./WalletField";
 import "./App.css";
 
 class WalletForm extends Component {
+
   renderFields() {
+
     return (
       <div>
         <Field

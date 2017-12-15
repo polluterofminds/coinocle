@@ -10,9 +10,6 @@ class TransactionField extends Component {
   }
 
   renderWallets() {
-
-
-
     return this.props.wallets.map(wallet => {
       return (
         <option key={wallet.title} name={wallet.title} value={wallet._id}>{wallet.title}</option>
